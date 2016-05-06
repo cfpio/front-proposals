@@ -15,7 +15,14 @@ const app = angular.module('io.cfp.front', dependencies)
   .directive('acmeNavbar', NavbarDirective)
 
 document.addEventListener('DOMContentLoaded', () => {
-  angular.bootstrap(document.documentElement, [app.name], {
-    strictDi: true
-  })
 })
+fetch('/api/settings/serviceproviders')
+  .then((response) => response.json())
+  .then((Config) => {
+    // Declare serviceproviders as constant
+    app.constant('Config', Config)
+    // Bootstrap application
+    angular.bootstrap(document.documentElement, [app.name], {
+      strictDi: true
+    })
+  })

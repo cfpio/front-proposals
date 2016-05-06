@@ -1,6 +1,7 @@
 export class MainController {
-  constructor() {
+  constructor($log, Config) {
     'ngInject'
 
+    $log.debug('MainController::constructor', Config)
   }
 }
