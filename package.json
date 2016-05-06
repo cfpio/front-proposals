@@ -1,8 +1,12 @@
 {
-  "name": "front",
+  "name": "io.cfp.front",
   "version": "0.0.0",
+  "scripts": {
+    "start": "gulp serve",
+    "build": "gulp build",
+    "test": "gulp test"
+  },
   "dependencies": {},
-  "scripts": {},
   "devDependencies": {
     "babel-core": "^6.8.0",
     "babel-loader": "~6.2.4",

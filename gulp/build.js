@@ -18,7 +18,7 @@ gulp.task('partials', () => {
       collapseWhitespace: true
     }))
     .pipe($.angularTemplatecache('templateCacheHtml.js', {
-      module: 'front',
+      module: 'io.cfp.front',
       root: 'app'
     }))
     .pipe(gulp.dest(conf.paths.tmp + '/partials/'))

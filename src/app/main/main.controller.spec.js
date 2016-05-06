@@ -1,7 +1,7 @@
 describe('controllers', () => {
   let vm
 
-  beforeEach(angular.mock.module('front'))
+  beforeEach(angular.mock.module('io.cfp.front'))
 
   beforeEach(inject(($controller) => {
     //spyOn(webDevTec, 'getTec').and.returnValue([{}, {}, {}, {}, {}])

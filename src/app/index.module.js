@@ -4,7 +4,7 @@ import { runBlock } from './index.run'
 import { MainController } from './main/main.controller'
 import { NavbarDirective } from '../app/components/navbar/navbar.directive'
 
-angular.module('front', ['ngSanitize', 'restangular', 'ui.router'])
+angular.module('io.cfp.front', ['ngSanitize', 'restangular', 'ui.router'])
   .constant('moment', moment)
   .config(config)
   .config(routerConfig)
