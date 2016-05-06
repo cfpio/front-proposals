@@ -31,7 +31,17 @@ function browserSyncInit(baseDir, browser) {
    *
    * For more details and option, https://github.com/chimurai/http-proxy-middleware/blob/v0.9.0/README.md
    */
-  // server.middleware = proxyMiddleware('/users', {target: 'http://jsonplaceholder.typicode.com', changeOrigin: true})
+  server.middleware = proxyMiddleware('/api', {
+    target: 'https://cfp.io',
+    changeOrigin: true,
+    logLevel: 'debug',
+    onError(error, request, response) {
+      response.writeHead(500, {
+        'Content-Type': 'text/plain'
+      })
+      response.end('Something went wrong. And we are reporting a custom error message.')
+    }
+  })
 
   browserSync.instance = browserSync.init({
     startPath: '/',
