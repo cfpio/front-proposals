@@ -1,5 +1,5 @@
 {
-  "name": "io.cfp.front",
+  "name": "fr.lowtaux.webapp",
   "version": "0.0.0",
   "dependencies": {
     "angular": "~1.5.3",

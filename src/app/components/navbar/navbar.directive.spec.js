@@ -8,7 +8,7 @@ describe('directive navbar', function () {
   let element
   let timeInMs
 
-  beforeEach(angular.mock.module('io.cfp.front'))
+  beforeEach(angular.mock.module('fr.lowtaux.webapp'))
 
   beforeEach(inject(($compile, $rootScope) => {
     const currentDate = new Date()

@@ -1,6 +1,7 @@
 {
-  "name": "io.cfp.front",
+  "name": "fr.lowtaux.webapp",
   "version": "0.0.0",
+  "private": true,
   "scripts": {
     "start": "gulp serve",
     "build": "gulp build",

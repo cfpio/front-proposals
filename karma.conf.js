@@ -45,7 +45,7 @@ module.exports = (config) => {
 
     ngHtml2JsPreprocessor: {
       stripPrefix: conf.paths.src + '/',
-      moduleName: 'io.cfp.front'
+      moduleName: 'fr.lowtaux.webapp'
     },
 
     logLevel: 'WARN',

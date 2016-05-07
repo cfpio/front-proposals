@@ -6,7 +6,7 @@ import { NavbarDirective } from '../app/components/navbar/navbar.directive'
 
 const dependencies = ['ngSanitize', 'restangular', 'ui.router']
 
-const app = angular.module('io.cfp.front', dependencies)
+const app = angular.module('fr.lowtaux.webapp', dependencies)
   .constant('moment', moment)
   .config(config)
   .config(routerConfig)
