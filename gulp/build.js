@@ -32,9 +32,10 @@ gulp.task('html', ['inject', 'partials'], () => {
     addRootSlash: false
   }
 
-  const htmlFilter = $.filter('*.html', { restore: true })
-  const jsFilter = $.filter('**/*.js', { restore: true })
-  const cssFilter = $.filter('**/*.css', { restore: true })
+  // Add .*/ prefix to support gulp-filter@4
+  const htmlFilter = $.filter('.*/*.html', { restore: true })
+  const jsFilter = $.filter('.*/**/*.js', { restore: true })
+  const cssFilter = $.filter('.*/**/*.css', { restore: true })
 
   return gulp.src(path.join(conf.paths.tmp, '/serve/*.html'))
     .pipe($.inject(partialsInjectFile, partialsInjectOptions))
