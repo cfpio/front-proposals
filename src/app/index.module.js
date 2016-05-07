@@ -15,14 +15,8 @@ const app = angular.module('fr.lowtaux.webapp', dependencies)
   .directive('acmeNavbar', NavbarDirective)
 
 document.addEventListener('DOMContentLoaded', () => {
-})
-fetch('/api/settings/serviceproviders')
-  .then((response) => response.json())
-  .then((Config) => {
-    // Declare serviceproviders as constant
-    app.constant('Config', Config)
-    // Bootstrap application
-    angular.bootstrap(document.documentElement, [app.name], {
-      strictDi: true
-    })
+  // Bootstrap application
+  angular.bootstrap(document.documentElement, [app.name], {
+    strictDi: true
   })
+})
