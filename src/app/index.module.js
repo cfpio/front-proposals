@@ -1,35 +1,28 @@
 import { config } from './index.config'
-import { router } from './index.router'
+import { routerConfig } from './index.route'
+import { runBlock } from './index.run'
 import { MainController } from './main/main.controller'
+import { NavbarDirective } from '../app/components/navbar/navbar.directive'
 
-import { zetapush, initialize, client } from './zetapush'
+const dependencies = ['ngSanitize', 'restangular', 'ui.router']
 
-import { login } from './components/login/login.module'
-
-const dependencies = ['ngSanitize', 'ui.router', zetapush.name]
-
-const modules = [login.name]
-
-const app = angular.module('fr.lowtaux.app', [...dependencies, ...modules])
+const app = angular.module('io.cfp.front', dependencies)
   .constant('moment', moment)
   .config(config)
-  .config(router)
+  .config(routerConfig)
+  .run(runBlock)
   .controller('MainController', MainController)
-  .run(($log) => {
-    'ngInject'
-
-    $log.debug('runBlock end')
-  })
+  .directive('acmeNavbar', NavbarDirective)
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Bootstrap application
-  window.client = client
-  initialize.then(() => {
-    console.debug('App Ready To Initialize')
-    angular.bootstrap(document.documentElement, [ app.name ], {
+})
+fetch('/api/settings/serviceproviders')
+  .then((response) => response.json())
+  .then((Config) => {
+    // Declare serviceproviders as constant
+    app.constant('Config', Config)
+    // Bootstrap application
+    angular.bootstrap(document.documentElement, [app.name], {
       strictDi: true
     })
-  }, () => {
-    console.error('Unable to connect to ZetaPush API')
   })
-})

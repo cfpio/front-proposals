@@ -31,9 +31,8 @@ function browserSyncInit(baseDir, browser) {
    *
    * For more details and option, https://github.com/chimurai/http-proxy-middleware/blob/v0.9.0/README.md
    */
-   /*
   server.middleware = proxyMiddleware('/api', {
-    target: 'https://api.io',
+    target: 'https://cfp.io',
     changeOrigin: true,
     logLevel: 'debug',
     onError(error, request, response) {
@@ -43,7 +42,6 @@ function browserSyncInit(baseDir, browser) {
       response.end('Something went wrong. And we are reporting a custom error message.')
     }
   })
-  */
 
   browserSync.instance = browserSync.init({
     startPath: '/',
@@ -53,7 +51,7 @@ function browserSyncInit(baseDir, browser) {
 }
 
 browserSync.use(browserSyncSpa({
-  selector: 'html'// Only needed for angular apps
+  selector: '[ng-app]'// Only needed for angular apps
 }))
 
 gulp.task('serve', ['watch'], function () {
