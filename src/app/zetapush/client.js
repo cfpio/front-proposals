@@ -1,0 +1,11 @@
+import { ApplicationsClient } from './application-client'
+
+const apiUrl = '//vm-zbo:8080/zbo/pub/business/'
+const sandboxId = 'InEiKDzg'
+
+/**
+ * @type {ApplicationsClient}
+ */
+export const client = new ApplicationsClient({
+  apiUrl, sandboxId
+})

@@ -1,22 +1,35 @@
 import { config } from './index.config'
-import { routerConfig } from './index.route'
-import { runBlock } from './index.run'
+import { router } from './index.router'
 import { MainController } from './main/main.controller'
-import { NavbarDirective } from '../app/components/navbar/navbar.directive'
 
-const dependencies = ['ngSanitize', 'restangular', 'ui.router']
+import { zetapush, initialize, client } from './zetapush'
 
-const app = angular.module('fr.lowtaux.webapp', dependencies)
+import { login } from './components/login/login.module'
+
+const dependencies = ['ngSanitize', 'ui.router', zetapush.name]
+
+const modules = [login.name]
+
+const app = angular.module('fr.lowtaux.app', [...dependencies, ...modules])
   .constant('moment', moment)
   .config(config)
-  .config(routerConfig)
-  .run(runBlock)
+  .config(router)
   .controller('MainController', MainController)
-  .directive('acmeNavbar', NavbarDirective)
+  .run(($log) => {
+    'ngInject'
+
+    $log.debug('runBlock end')
+  })
 
 document.addEventListener('DOMContentLoaded', () => {
   // Bootstrap application
-  angular.bootstrap(document.documentElement, [app.name], {
-    strictDi: true
+  window.client = client
+  initialize.then(() => {
+    console.debug('App Ready To Initialize')
+    angular.bootstrap(document.documentElement, [ app.name ], {
+      strictDi: true
+    })
+  }, () => {
+    console.error('Unable to connect to ZetaPush API')
   })
 })
