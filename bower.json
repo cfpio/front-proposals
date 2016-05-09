@@ -4,6 +4,7 @@
     "angular": "~1.5.3",
     "angular-sanitize": "~1.5.3",
     "angular-ui-router": "~0.2.15",
+    "bootstrap": "^3.3.6",
     "es6-promise": "^3.2.1",
     "fetch": "^1.0.0",
     "moment": "^2.13.0"
@@ -13,5 +14,12 @@
   },
   "resolutions": {
     "angular": "~1.5.3"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/css/bootstrap.css"
+      ]
+    }
   }
 }
