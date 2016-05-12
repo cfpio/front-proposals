@@ -11,3 +11,5 @@ dist/
 # Dependency directory
 node_modules/
 vendor/
+# Mac OS X files
+**/.DS_Store
