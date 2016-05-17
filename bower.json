@@ -8,7 +8,8 @@
     "es6-promise": "^3.2.1",
     "fetch": "^1.0.0",
     "moment": "^2.13.0",
-    "restangular": "~1.5.1"
+    "restangular": "~1.5.1",
+    "angular-translate": "^2.11.0"
   },
   "devDependencies": {
     "angular-mocks": "~1.5.3"
