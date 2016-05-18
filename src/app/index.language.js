@@ -5,11 +5,11 @@ export const i18n = ($translateProvider) => {
 
   $translateProvider.translations('fr-FR', {
     'DIALOGS_ERROR': 'Erreur',
-    'DIALOGS_ERROR_MSG': "Une erreur inconnue s'est produite.",
+    'DIALOGS_ERROR_MSG': 'Une erreur inconnue s\'est produite.',
     'DIALOGS_CLOSE': 'Fermer',
     'DIALOGS_PLEASE_WAIT': 'Veuillez patienter',
     'DIALOGS_PLEASE_WAIT_ELIPS': 'Veuillez patienter…',
-    'DIALOGS_PLEASE_WAIT_MSG': "Attente de la fin de l'opération.",
+    'DIALOGS_PLEASE_WAIT_MSG': 'Attente de la fin de l\'opération.',
     'DIALOGS_PERCENT_COMPLETE': '% Complet',
     'DIALOGS_NOTIFICATION': 'Notification',
     'DIALOGS_NOTIFICATION_MSG': 'Notification applicative Inconnu.',
@@ -27,7 +27,7 @@ export const i18n = ($translateProvider) => {
       'logout': 'Se déconnecter',
       'dashboard': 'Dashboard',
       'profil': 'Profil',
-      'openUntil': "Ouvert jusqu'au ",
+      'openUntil': 'Ouvert jusqu\'au ',
       'decision': 'Délibération le ',
       'admin': 'Admin'
     },
@@ -42,14 +42,14 @@ export const i18n = ($translateProvider) => {
     'dashboard': {
       'createNewSession': 'Créer un nouveau talk',
       'submissionDisabled': 'La soumission de nouvelles candidatures est désactivée.',
-      'editionTalks': "Talks en cours d'édition",
-      'editionCoTalks': "Talks (en tant que cospeaker) en cours d'édition",
-      'noEditionTalks': "Vous n'avez pas de talk en cours d'édition",
+      'editionTalks': 'Talks en cours d\'édition',
+      'editionCoTalks': 'Talks (en tant que cospeaker) en cours d\'édition',
+      'noEditionTalks': 'Vous n\'avez pas de talk en cours d\'édition',
       'sendedTalks': 'Talks envoyés',
       'draftModifiedAt': 'Brouillon modifié le ',
       'modifiedAt': 'modifié le ',
       'postedAt': 'ajouté le ',
-      'noSendedTalks': "Vous n'avez pas encore proposé de talk",
+      'noSendedTalks': 'Vous n\'avez pas encore proposé de talk',
       'verification': 'Vérification',
       'verificationNeeded': 'Un e-mail a été envoyé à votre adresse, cliquez sur le lien présent dans celui-ci pour valider'
                           + ' votre compte.',
@@ -59,9 +59,9 @@ export const i18n = ($translateProvider) => {
     'profil': {
       'save': 'Sauvegarder',
       'success': 'Profil sauvegardé',
-      'error': "Erreur lors de l'enregistrement",
+      'error': 'Erreur lors de l\'enregistrement',
       'avatar': 'Image de profil :',
-      'dropImage': "Déposer l'image ici",
+      'dropImage': 'Déposer l\'image ici',
       'selectImage': 'Parcourir'
     },
     'login': {
@@ -69,8 +69,8 @@ export const i18n = ($translateProvider) => {
       'email': 'Email',
       'password': 'Mot de passe',
       'login': 'Se connecter',
-      'noAccount': "Vous n'avez pas encore de compte ?",
-      'signup': "S'enregistrer",
+      'noAccount': 'Vous n\'avez pas encore de compte ?',
+      'signup': 'S\'enregistrer',
       'or': 'Ou',
       'signGoogle': 'Se connecter avec Google',
       'signGithub': 'Se connecter avec Github',
@@ -79,13 +79,13 @@ export const i18n = ($translateProvider) => {
       'alreadyLinked': 'Il existe déjà un utilisateur associé à ce fournisseur'
     },
     'signup': {
-      'signup': "S'enregistrer",
+      'signup': 'S\'enregistrer',
       'email': 'Email',
       'password': 'Mot de passe',
       'confirmPassword': 'Confirmez le mot de passe',
       'yesAccount': 'Vous avez déjà un compte ?',
       'loginNow': 'Se connecter',
-      'emailRequired': "L'adresse email est obligatoire",
+      'emailRequired': 'L\'adresse email est obligatoire',
       'emailPattern': 'Votre adresse email est invalide',
       'passwordRequired': 'Le mot de passe est obligatoire',
       'passwordMinLength': 'Le mot de passe doit contenir au moins 6 caractères',
@@ -98,7 +98,7 @@ export const i18n = ($translateProvider) => {
       'categories': 'Catégories'
     },
     'verify': {
-      'title': "Verification de l'email",
+      'title': 'Verification de l\'email',
       'verified': 'Votre email a été vérifié',
       'alreadyVerified': 'Ce compte a déjà été vérifié',
       'notVerified': 'Erreur de vérification'
@@ -143,15 +143,15 @@ export const i18n = ($translateProvider) => {
       'description': 'Description * :',
       'language': 'Langue de présentation :',
       'hintDescription': 'Donnez une description de votre présentation. Elle sera utilisée sur le site web.',
-      'references': "Références ou compléments d'informations :",
+      'references': 'Références ou compléments d\'informations :',
       'hintReferences': 'Y a-t-il des conférences où vous avez déjà fait des présentations ? Si vous pouvez donner'
                       + ' un lien vers celle(s)-ci ça serait bien.',
       'difficulty': 'Difficulté * (Débutant, Confirmé, Expert) :',
       'track': 'Catégorie * :',
       'cospeaker': 'Co-conférenciers :',
-      'hintCospeaker': "Si vous n'êtes pas seul lors de la présentation, donnez l'email des autres conférenciers."
+      'hintCospeaker': 'Si vous n\'êtes pas seul lors de la présentation, donnez l\'email des autres conférenciers.'
                       + ' ATTENTION, ceux-ci doivent être préalablement inscrit sur le CFP avec cette même adresse.',
-      'cospeakerNotFound': "Le cospeaker avec l'adresse {{value}} n'existe pas.",
+      'cospeakerNotFound': 'Le cospeaker avec l\'adresse {{value}} n\'existe pas.',
       'beginner': 'Débutant',
       'confirmed': 'Confirmé',
       'expert': 'Expert',
@@ -172,15 +172,15 @@ export const i18n = ($translateProvider) => {
     'step3': {
       'header1': 'Vous pouvez renseigner ici les informations nécessaires pour votre venue. Ces informations'
                 + ' seront minutieusement étudiées pour notre décision. Ne choisissez oui que si vous en avez besoin.',
-      'header2': "Un petit déjeuner et un déjeuner sont offerts le jour de l'évènement.",
+      'header2': 'Un petit déjeuner et un déjeuner sont offerts le jour de l\'évènement.',
       'financial': 'Avez-vous besoin d’une aide financière ? * :',
       'labelTravel': 'Voyage :',
-      'travel': "J'ai besoin d’une aide financière pour le voyage.",
+      'travel': 'J\'ai besoin d\’une aide financière pour le voyage.',
       'place': 'D’où venez vous ? :',
       'labelHotel': 'Hébergement',
-      'hotel': "J'ai besoin d’une aide financière pour l’hotel.",
+      'hotel': 'J\'ai besoin d’une aide financière pour l’hotel.',
       'date': 'Pour quelle(s) date(s) ? :',
-      'sendError': "Erreur lors de l'envoi veuillez réessayer",
+      'sendError': 'Erreur lors de l\'envoi veuillez réessayer',
       'sryClosedSince': 'Désolé, le CFP est fermé depuis le '
     },
     'confirmModal': {
@@ -263,7 +263,7 @@ export const i18n = ($translateProvider) => {
       'financialHelp': 'Aide financière',
       'deleteSession': 'Supprimer la session',
       'validated': 'Sessions validées',
-      'draft': "Sessions en cours d'édition",
+      'draft': 'Sessions en cours d\'édition',
       'lastModification': 'Dernière activité',
       'never': 'Jamais',
       'noVote': 'Sans avis',
@@ -280,10 +280,10 @@ export const i18n = ($translateProvider) => {
       'newMessages': 'Nouveaux messages',
       'nextToRate': 'Prochain talk à noter',
       'community': 'Nom de la communautée organisatrice',
-      'eventName': "Nom de l'événement",
+      'eventName': 'Nom de l\'événement',
       'decisionDate': 'Date de fin des votes',
       'releaseDate': 'Date de fin des soumissions',
-      'startDate': "Date du début de l'événement",
+      'startDate': 'Date du début de l\'événement',
       'configCfp': 'Configuration du CFP',
       'btn.save': 'Sauvegarder'
     },
@@ -310,16 +310,16 @@ export const i18n = ($translateProvider) => {
       'login': 'Se connecter',
       'config': 'Configuration',
       'linkMyAccount': 'Lier mon compte Google Drive avec Call For Paper',
-      'configurationNeeded': "L'administrateur doit configurer l'application avant que vous puissiez l'utiliser",
+      'configurationNeeded': 'L\'administrateur doit configurer l\'application avant que vous puissiez l\'utiliser',
       'success': 'Votre compte est maintenant lié',
       'error': 'Erreur lors de la configuration',
-      'configureLink': "Configurer l'application"
+      'configureLink': 'Configurer l\'application'
     },
     'error': {
       'backendcommunication': 'Désolé, il y a eu un problème avec le serveur distant',
       'noInternet': 'Désolé, il y a eu une problème de connexion, êtes vous connecté à internet ?'
     },
-    'just_now': "à l'instant",
+    'just_now': 'à l\'instant',
     'seconds_ago': 'il y a {{time}} secondes',
     'a_minute_ago': 'il y a une minute',
     'minutes_ago': 'il y a {{time}} minutes',
@@ -333,7 +333,7 @@ export const i18n = ($translateProvider) => {
     'months_ago': 'il y a {{time}} mois',
     'a_year_ago': 'il y a un an',
     'years_ago': 'il y a {{time}} ans',
-    'over_a_year_ago': "il y a plus d'un an",
+    'over_a_year_ago': 'il y a plus d\'un an',
     'seconds_from_now': 'dans une seconde',
     'a_minute_from_now': 'dans une minute',
     'minutes_from_now': 'dans {{time}} minutes',
@@ -347,7 +347,7 @@ export const i18n = ($translateProvider) => {
     'months_from_now': 'dans {{time}} mois',
     'a_year_from_now': 'dans un an',
     'years_from_now': 'dans {{time}} ans',
-    'over_a_year_from_now': "dans plus d'un an"
+    'over_a_year_from_now': 'dans plus d\'un an'
   })
 
   $translateProvider.translations('en-US', {
@@ -391,12 +391,12 @@ export const i18n = ($translateProvider) => {
       'submissionDisabled': 'Submitting new talks is disabled.',
       'editionTalks': 'Talks available for editing',
       'editionCoTalks': 'Cospeaker Talks available for editing',
-      'noEditionTalks': "You don't have any draft",
+      'noEditionTalks': 'You don\'t have any draft',
       'sendedTalks': 'Submitted talks',
       'draftModifiedAt': 'Draft modified the ',
       'modifiedAt': 'modified the ',
       'postedAt': 'submited the ',
-      'noSendedTalks': "You don't have submitted any talk yet",
+      'noSendedTalks': 'You don\'t have submitted any talk yet',
       'verification': 'Verification',
       'verificationNeeded': 'An email has been sent to your address, click the link in it to confirm your account.',
       'submittedTalks': 'Submitted talks count: ',
@@ -415,7 +415,7 @@ export const i18n = ($translateProvider) => {
       'email': 'Email',
       'password': 'Password',
       'login': 'Login',
-      'noAccount': "Don't have an account yet?",
+      'noAccount': 'Don\'t have an account yet?',
       'signup': 'Signup',
       'or': 'Or',
       'signGoogle': 'Sign in with Google',
@@ -445,7 +445,7 @@ export const i18n = ($translateProvider) => {
       'notVerified': 'Errror during verification'
     },
     'talkInfo': {
-      'intro': "Here some information on talk's format and talk's categories :",
+      'intro': 'Here some information on talk\'s format and talk\'s categories :',
       'formats': 'Formats',
       'categories': 'Categories'
     },
@@ -495,7 +495,7 @@ export const i18n = ($translateProvider) => {
       'cospeaker': 'Co-speaker:',
       'hintCospeaker': 'If you are not alone on stage, give the co-speaker email. WARNING : cospeakers must have'
                       + ' create an account with this email before.',
-      'cospeakerNotFound': "The cospeaker with email {{value}} doesn't exist.",
+      'cospeakerNotFound': 'The cospeaker with email {{value}} doesn\'t exist.',
       'beginner': 'Beginner',
       'confirmed': 'Confirmed',
       'expert': 'Expert',
