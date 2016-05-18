@@ -1,4 +1,4 @@
-export function langConfig($translateProvider) {
+export const i18n = ($translateProvider) => {
   'ngInject'
   // Define translations for labels, buttons, error messages, ...
   $translateProvider.useSanitizeValueStrategy('escape')

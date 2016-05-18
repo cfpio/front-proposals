@@ -1,0 +1,43 @@
+<form class="Form Form--Profile" novalidate role="form" name="form" autocomplete="off" ng-submit="$ctrl.onSubmit($event)">
+  <h2>@TODO Form--Profile</h2>
+  <div class="input-group">
+    <label class="input-group-addon" for="cfp-form-profile-lastname">{{'step1.lastname' | translate}}</label>
+    <input type="text" id="cfp-form-profile-lastname" class="form-control" placeholder="{{'step1.lastname' | translate}}" ng-model="$ctrl.model.lastname" required>
+  </div>
+  <div class="input-group">
+    <label class="input-group-addon" for="cfp-form-profile-firstname">{{'step1.firstname' | translate}}</label>
+    <input type="text" id="cfp-form-profile-firstname" class="form-control" placeholder="{{'step1.firstname' | translate}}" ng-model="$ctrl.model.firstname" required>
+  </div>
+  <div class="input-group">
+    <label class="input-group-addon" for="cfp-form-profile-email">{{'step1.email' | translate}}</label>
+    <input type="text" id="cfp-form-profile-email" class="form-control" placeholder="{{'step1.email' | translate}}" ng-model="$ctrl.model.email" required>
+  </div>
+  <div class="input-group">
+    <label class="input-group-addon" for="cfp-form-profile-favorite_language">{{'step1.language' | translate}}</label>
+    <input type="text" id="cfp-form-profile-favorite_language" class="form-control" placeholder="{{'step1.language' | translate}}" ng-model="$ctrl.model.favorite_language" required>
+  </div>
+  <div class="input-group">
+    <label class="input-group-addon" for="cfp-form-profile-phone_number">{{'step1.phone' | translate}}</label>
+    <input type="text" id="cfp-form-profile-phone_number" class="form-control" placeholder="{{'step1.phone' | translate}}" ng-model="$ctrl.model.phone_number" required>
+  </div>
+  <div class="input-group">
+    <label class="input-group-addon" for="cfp-form-business">{{'step1.company' | translate}}</label>
+    <input type="text" id="cfp-form-business" class="form-control" placeholder="{{'step1.company' | translate}}" ng-model="$ctrl.model.business" required>
+  </div>
+  <div class="input-group">
+    <label class="input-group-addon" for="cfp-form-bio">{{'step1.bio' | translate}}</label>
+    <input type="text" id="cfp-form-bio" class="form-control" placeholder="{{'step1.bio' | translate}}" ng-model="$ctrl.model.bio" required>
+  </div>
+  <div class="input-group">
+    <label class="input-group-addon" for="cfp-form-twitter_profile">{{'step1.twitter' | translate}}</label>
+    <input type="text" id="cfp-form-twitter_profile" class="form-control" placeholder="{{'step1.twitter' | translate}}" ng-model="$ctrl.model.twitter_profile" required>
+  </div>
+  <div class="input-group">
+    <label class="input-group-addon" for="cfp-form-google_profile">{{'step1.googleplus' | translate}}</label>
+    <input type="text" id="cfp-form-google_profile" class="form-control" placeholder="{{'step1.googleplus' | translate}}" ng-model="$ctrl.model.google_profile" required>
+  </div>
+  <div class="input-group">
+    <label class="input-group-addon" for="cfp-form-github_profile">{{'step1.github' | translate}}</label>
+    <input type="text" id="cfp-form-github_profile" class="form-control" placeholder="{{'step1.github' | translate}}" ng-model="$ctrl.model.github_profile" required>
+  </div>
+</form>
