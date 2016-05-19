@@ -1,7 +1,8 @@
-export function config($compileProvider, $logProvider, $translateProvider) {
+export const config = ($compileProvider, $logProvider, $translateProvider) => {
   'ngInject'
+
   // Enable log
   $logProvider.debugEnabled(true)
   // Enable debug
-  $compileProvider.debugInfoEnabled(true)  
+  $compileProvider.debugInfoEnabled(true)
 }
