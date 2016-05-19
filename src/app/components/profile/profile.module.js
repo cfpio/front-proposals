@@ -14,12 +14,8 @@ export const profile = angular
 
     // Declare routes
     $stateProvider
-      .state('authenticated.profile', {
+      .state('profile', {
         url: '/profile',
-        views: {
-          view: {
-            template: '<cfp-view-profile></cfp-view-profile>'
-          }
-        }
+        template: '<cfp-view-profile></cfp-view-profile>'
       })
   })
