@@ -11,10 +11,7 @@ ADD /.bowerrc /work/
 ADD /gulpfile.js /work/
 ADD /npm-shrinkwrap.json /work/
 
-RUN npm install 
-
-# for some odd reason (sic) bower postinstall script doesn't run automatically inside container
-RUN ./node_modules/.bin/bower install
+RUN npm install --unsafe-perm
 
 ADD / /work
 
