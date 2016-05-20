@@ -4,6 +4,7 @@ npm-debug.log*
 coverage/
 # IDE
 .idea
+*.iml
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 .sass-cache/
 .tmp/
