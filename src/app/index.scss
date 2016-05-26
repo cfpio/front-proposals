@@ -11,14 +11,6 @@ a {
   text-decoration: none;
 }
 
-.container {
-  width: 1170px;
-  margin-right: auto;
-  margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
 .navbar-default {
   color: #fff;
 }
@@ -73,21 +65,6 @@ a {
   background-color: gainsboro;
   border-radius: 6px;
   text-align: center;
-}
-
-.btn {
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-  border: 1px solid transparent;
-  color: white;
-  background-color: #5cb85c;
-  border-color: #4cae4c;
-  padding: 10px 16px;
-  font-size: 18px;
-  line-height: 1.33;
-  border-radius: 6px;
 }
 
 .col {
