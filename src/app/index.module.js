@@ -5,7 +5,6 @@ import { i18n } from './index.language'
 import { components } from './components/components.module'
 
 import { MainController } from './main/main.controller'
-import { NavbarDirective } from '../app/components/navbar/navbar.directive'
 
 const dependencies = [
   'ngSanitize',
@@ -21,7 +20,6 @@ const app = angular.module('io.cfp.front', [...dependencies, components.name])
   .config(i18n)
 
   .controller('MainController', MainController)
-  .directive('acmeNavbar', NavbarDirective)
 
   .run(($log) => {
     'ngInject'
