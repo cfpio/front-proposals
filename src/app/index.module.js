@@ -27,7 +27,7 @@ const app = angular.module('io.cfp.front', [...dependencies, components.name])
     $log.debug('App Initialized')
   })
 
-const configLoaded = fetch('/api/application')
+const configLoaded = fetch('https://api.cfp.io/v0/application')
   .then(response => response.json())
   .then(appConfig => {
     app.constant('AppConfig', appConfig)
