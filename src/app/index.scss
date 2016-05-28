@@ -55,6 +55,9 @@ a {
         padding: 15px;
         line-height: 20px;
       }
+      a:hover {
+        background-color: darkorange;
+      }
       &.active a {
         background-color: black;
       }
@@ -64,6 +67,11 @@ a {
 
 .navbar-brand {
   color: white;
+
+  em {
+    color: darkorange;
+    font-style: normal;
+  }
 }
 
 .jumbotron {
