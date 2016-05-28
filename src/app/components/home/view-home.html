@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-12 col-sm-12">
       <h1><i class="fa fa-comment-o"></i> Call for Papers</h1>
-      <h2>My Awesome Conf 2016, 29th-32nd December 2016</h2>
+      <h2>{{$ctrl.config.eventName}}, {{$ctrl.config.date}}</h2>
       <hr>
     </div>
   </div>
@@ -11,15 +11,15 @@
 
     <div class="col-md-5 col-sm-12">
       <h3><i class="fa fa-calendar"></i> Agenda</h3>
-      <p><strong>opening :</strong> Thursday, March 34, 2016</p>
-      <p><strong>closing :</strong> Tuesday, September 31, 2016</p>
-      <p><strong>Program announced :</strong> from Monday, December 1st, 2016</p>
+      <p><strong>opening :</strong> TODO</p>
+      <p><strong>closing :</strong> {{$ctrl.config.decisionDate}}</p>
+      <p><strong>Program announced :</strong> {{$ctrl.config.releaseDate}}</p>
     </div>
     <div class="col-md-5 col-sm-12">
-      <h3>About My Awesome Conf</h3>
-      <i class="fa fa-video-camera" ></i> Review My Awesome Conf 2015's videos on <a href="#">Youtube</a>
+      <h3>About {{$ctrl.config.eventName}}</h3>
+      <i class="fa fa-video-camera"></i> Review {{$ctrl.config.eventName}} videos on <a href="#">Youtube</a>
       <br>
-      <i class="fa fa-arrow-right" ></i> My Awesome Conf 2016 web site
+      <i class="fa fa-arrow-right"></i> {{$ctrl.config.eventName}} web site
     </div>
   </div>
 
@@ -28,7 +28,7 @@
   <div class="col-md-5 col-sm-5">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3><i class="fa fa-bullhorn"></i> CFP is Open</h3>
+        <h3><i class="fa fa-bullhorn"></i> CFP is {{$ctrl.config.open ? 'Open' : 'Closed'}}</h3>
       </div>
       <div class="panel-body">
         <a href="#" class="btn btn-primary">Become a speaker</a>

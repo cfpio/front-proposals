@@ -1,6 +1,7 @@
 class ViewHomeController {
-  constructor() {
+  constructor(AppConfig) {
     'ngInject'
+    this.config = AppConfig
   }
 }
 

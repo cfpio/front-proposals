@@ -1,10 +1,10 @@
-import { config } from './index.config'
-import { router } from './index.router'
-import { i18n } from './index.language'
+import {config} from './index.config'
+import {router} from './index.router'
+import {i18n} from './index.language'
 
-import { components } from './components/components.module'
+import {components} from './components/components.module'
 
-import { MainController } from './main/main.controller'
+import {MainController} from './main/main.controller'
 
 const dependencies = [
   'ngSanitize',
@@ -27,8 +27,16 @@ const app = angular.module('io.cfp.front', [...dependencies, components.name])
     $log.debug('App Initialized')
   })
 
+const configLoaded = fetch('/api/application')
+  .then(response => response.json())
+  .then(appConfig => {
+    app.constant('AppConfig', appConfig)
+  })
+
 document.addEventListener('DOMContentLoaded', () => {
-  angular.bootstrap(document.documentElement, [app.name], {
-    strictDi: true
+  configLoaded.then(() => {
+    angular.bootstrap(document.documentElement, [app.name], {
+      strictDi: true
+    })
   })
 })
