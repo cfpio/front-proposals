@@ -1,3 +1,11 @@
+/**
+ *  If you want to override some bootstrap variables, you have to change values here.
+ *  The list of variables are listed here bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss
+ */
+
+$icon-font-path: "../vendor/bootstrap-sass/assets/fonts/bootstrap/";
+$fa-font-path: "../vendor/font-awesome/fonts/";
+
 /* Do not remove the comments below. It's the markers used by wiredep to inject
    sass dependencies when defined in the bower.json of your dependencies */
 // bower:scss
@@ -21,7 +29,7 @@ a {
   margin-bottom: 20px;
   background-color: #222;
 
-  &>a {
+  & > a {
     float: left;
     color: lightgrey;
     padding: 15px 15px;
@@ -57,7 +65,6 @@ a {
 .navbar-brand {
   color: white;
 }
-
 
 .jumbotron {
   padding: 60px;

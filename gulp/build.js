@@ -48,6 +48,8 @@ gulp.task('html', ['inject', 'partials'], () => {
     .pipe(jsFilter.restore)
     .pipe(cssFilter)
     // .pipe($.sourcemaps.init())
+    .pipe($.replace('../vendor/bootstrap-sass/assets/fonts/bootstrap/', '../fonts/'))
+    .pipe($.replace('../vendor/font-awesome/fonts', '../fonts'))
     .pipe($.cssnano())
     .pipe($.rev())
     // .pipe($.sourcemaps.write('maps'))
