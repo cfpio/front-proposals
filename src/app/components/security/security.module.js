@@ -1,9 +1,11 @@
-import { AuthenticationInterceptor } from './interceptors'
+import {AuthenticationInterceptor} from './auth.interceptor'
+import {AuthenticationService} from './auth.service'
 
 export const security = angular
   .module('io.cfp.front.components.security', [])
 
-  .service('AuthenticationInterceptor', AuthenticationInterceptor)
+  .provider('AuthenticationService', AuthenticationService)
+  .factory('AuthenticationInterceptor', AuthenticationInterceptor)
 
   .config(($httpProvider) => {
     'ngInject'
