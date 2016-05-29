@@ -15,4 +15,8 @@ ADD / /work
 
 RUN npm run build
 
+RUN mkdir /www
+RUN mv /work/dist /www/front
+
+VOLUME /www/front
 
