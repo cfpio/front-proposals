@@ -1,4 +1,12 @@
-// TODO: Add your components rules here
-.View--Home {
-
+.footer {
+  > .container {
+    > p {
+      margin-top: 10px;
+    }
+  }
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 40px;
 }

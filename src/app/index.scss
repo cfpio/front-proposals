@@ -11,8 +11,14 @@ $fa-font-path: "../vendor/font-awesome/fonts";
 // bower:scss
 // endbower
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
-  margin: 0;
+  /* Margin bottom by footer height */
+  margin-bottom: 40px;
 }
 
 a {
