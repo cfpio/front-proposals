@@ -1,4 +1,6 @@
-export const config = ($compileProvider, $logProvider, $translateProvider, AuthenticationServiceProvider, AppConfig) => {
+export const config = ($compileProvider, $logProvider, $translateProvider, AuthenticationServiceProvider, AppConfig,
+    RestangularProvider) => {
+
   'ngInject'
 
   // Enable log
@@ -7,4 +9,6 @@ export const config = ($compileProvider, $logProvider, $translateProvider, Authe
   $compileProvider.debugInfoEnabled(true)
 
   AuthenticationServiceProvider.authUrl(AppConfig.authServer)
+
+  RestangularProvider.setBaseUrl('/api')
 }
