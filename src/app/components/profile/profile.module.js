@@ -15,6 +15,7 @@ export const profile = angular
     // Declare routes
     $stateProvider
       .state('profile', {
+        parent: 'home',
         url: '/profile',
         template: '<cfp-view-profile></cfp-view-profile>'
       })

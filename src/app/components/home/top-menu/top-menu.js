@@ -1,6 +1,9 @@
 class TopMenuController {
-  constructor() {
+  constructor(AppUser, AuthenticationService) {
     'ngInject'
+
+    this.user = AppUser
+    this.authService = AuthenticationService
   }
 }
 

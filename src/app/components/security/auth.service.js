@@ -9,12 +9,26 @@ export const AuthenticationService = () => {
     '$get': ($window, $location) => {
       'ngInject'
       return {
-        login: () => {
-          $window.location = `${authUrl}?target=${encodeURIComponent($location.absUrl())}`
-        },
-        logout: () => {
-          $window.location = `${authUrl}/logout`
-        }
+        getLoginUrl,
+        getLogoutUrl,
+        login,
+        logout
+      }
+
+      function getLoginUrl() {
+        return `${authUrl}?target=${encodeURIComponent($location.absUrl())}`
+      }
+
+      function getLogoutUrl() {
+        return `${authUrl}/logout`
+      }
+
+      function login() {
+        $window.location = getLoginUrl()
+      }
+
+      function logout() {
+        $window.location = getLogoutUrl()
       }
     }
   }

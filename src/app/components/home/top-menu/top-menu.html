@@ -1,23 +1,26 @@
 <ul class="nav navbar-nav navbar-right">
   <li class="page-scroll">
-    <a href="#portfolio"><i class="fa fa-list-alt"></i> DashBoard</a>
+    <a ui-sref="welcome"><i class="fa fa-list-alt"></i> {{ 'header.dashboard' | translate }}</a>
   </li>
   <li class="page-scroll">
-    <a href="#about"><i class="fa fa-user"></i> Profile</a>
+    <a ui-sref="welcome"><i class="fa fa-signal"></i> {{ 'header.review' | translate }}</a>
   </li>
   <li class="page-scroll">
-    <a href="#contact"><i class="fa fa-signal"></i> Review</a>
+    <a ui-sref="welcome"><i class="fa fa-th"></i> {{ 'header.schedule' | translate }}</a>
   </li>
   <li class="page-scroll">
-    <a href="#contact"><i class="fa fa-th"></i> Schedule</a>
+    <a ui-sref="welcome"><i class="fa fa-cog"></i> {{ 'header.configure' | translate }}</a>
   </li>
-  <li class="page-scroll">
-    <a href="#contact"><i class="fa fa-cog"></i> Configure</a>
+  <li class="page-scroll" ng-if="!!$ctrl.user">
+    <a ui-sref="profile">
+      <img ng-src="https://avatars.io/gravatar/{{$ctrl.user.email}}" width="48" height="48">
+      {{ 'header.profile' | translate }}
+    </a>
   </li>
-  <li class="page-scroll" ng-hide="app.user == null" class="ng-hide">
-    <a href="#contact"><img ng-src="https://avatars.io/gravatar/{{app.user.email}}" width="48" height="48"> Me</a>
+  <li class="page-scroll" ng-if="!!$ctrl.user">
+    <a ng-href="{{ $ctrl.authService.getLogoutUrl() }}" translate>header.logout</a>
   </li>
-  <li class="page-scroll" ng-hide="app.user == null" class="ng-hide">
-    <a href="https://auth.cfp.io/logout">Logout</a>
+  <li class="page-scroll" ng-if="!$ctrl.user">
+    <a ng-href="{{ $ctrl.authService.getLoginUrl() }}" translate>header.login</a>
   </li>
 </ul>

@@ -1,13 +1,36 @@
 class FormProfileController {
-  constructor(Restangular) {
+
+  constructor(Restangular, $timeout, $scope, $state) {
     'ngInject'
 
-    Restangular.one('users/me').get().then((user) => {
+    this.$timeout = $timeout
+    this.$scope   = $scope
+    this.$state   = $state
+    this.rest     = Restangular
+    this.rest.one('users/me').get().then((user) => {
       this.model = user
     })
   }
-  onSubmit(event) {
-    event.preventDefault()
+
+  onCancel() {
+    this.reload()
+  }
+
+  onSubmit() {
+    this.$timeout(() => {
+      this.$scope.$broadcast('show-errors-check-validity')
+      if (this.form.$valid) {
+        this.model.put().then(() => {
+          this.reload()
+        })
+      }
+    })
+  }
+
+  reload() {
+    this.$state.go(this.$state.current, {}, {
+      reload: true
+    })
   }
 }
 
