@@ -1,12 +1,54 @@
-<div class="container">
-  <div>
-    <acme-navbar creation-date="main.creationDate"></acme-navbar>
+<nav class="navbar navbar-fixed-top">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#page-top">CFP.<em>io</em> - Awesome<em>Conf</em>'16</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="page-scroll">
+          <a ui-sref="home"><i class="fa fa-list-alt"></i> DashBoard</a>
+        </li>
+        <li class="page-scroll">
+          <a ui-sref="profile"><i class="fa fa-user"></i> Profile</a>
+        </li>
+        <li class="page-scroll">
+          <a><i class="fa fa-signal"></i> Review</a>
+        </li>
+        <li class="page-scroll">
+          <a><i class="fa fa-th"></i> Schedule</a>
+        </li>
+        <li class="page-scroll">
+          <a><i class="fa fa-cog"></i> Configure</a>
+        </li>
+        <li class="page-scroll" ng-hide="app.user == null" class="ng-hide">
+          <a><img ng-src="https://avatars.io/gravatar/{{app.user.email}}" width="48" height="48"> Me</a>
+        </li>
+        <li class="page-scroll" ng-hide="app.user == null" class="ng-hide">
+          <a href="https://auth.cfp.io/logout">Logout</a>
+        </li>
+      </ul>
+    </div>
   </div>
-  <div class="jumbotron">
-    <h1>{{'login.title' | translate}}</h1>
-    <p class="lead">
-      <img src="assets/images/yeoman.png" alt="I'm Yeoman"><br>
-      Always a pleasure scaffolding your apps.
+</nav>
+
+<ui-view></ui-view>
+
+<footer class="footer">
+  <div class="container">
+    <p>
+      cfp.io Copyright &copy; BreizhCamp 2016 -
+      <a href="https://github.com/cfpio/callForPapers/issues">
+        <i class="fa fa-bug"></i> Report an issue
+      </a>
     </p>
   </div>
-</div>
+</footer>

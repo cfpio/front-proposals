@@ -4,5 +4,5 @@ export const router = ($locationProvider, $urlRouterProvider, $stateProvider) =>
   // Routing
   $locationProvider.html5Mode(false)
   // Default redirection
-  $urlRouterProvider.otherwise('/home')
+  $urlRouterProvider.otherwise('/')
 }
