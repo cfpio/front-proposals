@@ -21,7 +21,9 @@ const app = angular.module('io.cfp.front', [...dependencies, components.name])
 
   .controller('MainController', MainController)
 
-  .run(($log) => {
+  // /!\ Do not remove the $state. Without it, the route is not initially loaded
+  // because the ui-view is inside ng-included template
+  .run(($log, $state) => {
     'ngInject'
 
     $log.debug('App Initialized')
