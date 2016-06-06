@@ -27,10 +27,17 @@ const app = angular.module('io.cfp.front', [...dependencies, components.name])
     $log.debug('App Initialized')
   })
 
-const configLoaded = fetch('/api/application')
-  .then(response => response.json())
-  .then(appConfig => {
-    app.constant('AppConfig', appConfig)
+const configLoaded = fetch('/infra', {method: 'HEAD'})
+  .then(response => {
+    const config = {
+      apiServer :  response.headers.get('X-API-Server'),
+      authServer :  response.headers.get('X-Authentication-Server')
+    }
+    return fetch(config.apiServer + '/api/application')
+      .then(response => response.json())
+      .then(appConfig => {
+        app.constant('AppConfig', Object.assign(appConfig, config))
+      })
   })
 
 document.addEventListener('DOMContentLoaded', () => {
