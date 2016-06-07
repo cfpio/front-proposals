@@ -33,48 +33,22 @@ describe('AuthenticationInterceptor', () => {
 
     describe('with 401 status code', () => {
 
-      describe('and no "Location" header in response should', () => {
-
-        beforeEach(() => {
-          spyOn($q, 'reject').and.callThrough()
-        })
-
-        it('should reject response', () => {
-
-          const response = {
-            status: 401,
-            headers: jasmine.createSpy().and.returnValue(undefined)
-          }
-
-          const result = service.responseError(response)
-
-          expect(response.headers).toHaveBeenCalledWith('Location')
-          expect($q.reject).toHaveBeenCalledWith(response)
-          expect(result.$$state.value).toBe(response)
-        })
+      beforeEach(() => {
+        spyOn($q, 'reject')
+        spyOn(AuthenticationService, 'login')
       })
 
-      describe('and "Location" header in response', () => {
+      it('should call AuthenticationService.login()', () => {
 
-        beforeEach(() => {
-          spyOn($q, 'reject')
-          spyOn(AuthenticationService, 'login')
-        })
+        const response = {
+          status: 401
+        }
 
-        it('should call AuthenticationService.login()', () => {
+        const result = service.responseError(response)
 
-          const response = {
-            status: 401,
-            headers: jasmine.createSpy().and.returnValue(authUrl)
-          }
-
-          const result = service.responseError(response)
-
-          expect(result).toBeUndefined()
-          expect(response.headers).toHaveBeenCalledWith('Location')
-          expect(AuthenticationService.login).toHaveBeenCalledWith(authUrl)
-          expect($q.reject).not.toHaveBeenCalled()
-        })
+        expect(result).toBeUndefined()
+        expect(AuthenticationService.login).toHaveBeenCalled()
+        expect($q.reject).not.toHaveBeenCalled()
       })
     })
   })
