@@ -10,5 +10,5 @@ export const config = ($compileProvider, $logProvider, $translateProvider, Authe
 
   AuthenticationServiceProvider.authUrl(AppConfig.authServer)
 
-  RestangularProvider.setBaseUrl('/api')
+  RestangularProvider.setBaseUrl(AppConfig.apiServer + '/api')
 }

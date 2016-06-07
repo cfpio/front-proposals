@@ -1,19 +1,10 @@
 class FormProfileController {
-  constructor() {
+  constructor(Restangular) {
     'ngInject'
 
-    this.model = {
-      lastname: '',
-      firstname: '',
-      email: '',
-      favorite_language: '',
-      phone_number: '',
-      business: '',
-      bio: '',
-      twitter_profile: '',
-      google_profile: '',
-      github_profile: ''
-    }
+    Restangular.one('users/me').get().then((user) => {
+      this.model = user
+    })
   }
   onSubmit(event) {
     event.preventDefault()
