@@ -1,4 +1,4 @@
-export const config = ($compileProvider, $logProvider, $translateProvider, AuthenticationServiceProvider, AppConfig,
+export const config = ($compileProvider, $logProvider, $translateProvider, $httpProvider, AuthenticationServiceProvider, AppConfig,
     RestangularProvider) => {
 
   'ngInject'
@@ -7,6 +7,9 @@ export const config = ($compileProvider, $logProvider, $translateProvider, Authe
   $logProvider.debugEnabled(true)
   // Enable debug
   $compileProvider.debugInfoEnabled(true)
+
+  //used to forward auth cookie on CORS
+  $httpProvider.defaults.withCredentials = true;
 
   AuthenticationServiceProvider.authUrl(AppConfig.authServer)
 
