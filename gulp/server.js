@@ -31,38 +31,26 @@ function browserSyncInit(baseDir, browser) {
    *
    * For more details and option, https://github.com/chimurai/http-proxy-middleware/blob/v0.9.0/README.md
    */
-  server.middleware = [
-    (req, res, next) => {
-      if (req.url === '/infra') {
-        res.writeHead(200, {
-          'X-API-Server': 'https://api.cfp.io',
-          'X-Authentication-Server': 'https://auth.cfp.io'
-        })
-        res.end()
-      }
-      else {
-        next()
-      }
-    },
-
-    // Proxy not used anymore, we call the absolute url directly
-    proxyMiddleware('/api', {
-      target: 'https://api.cfp.io',
-      changeOrigin: true,
-      logLevel: 'debug',
-      onError(error, request, response) {
-        response.writeHead(500, {
-          'Content-Type': 'text/plain'
-        })
-        response.end('Something went wrong. And we are reporting a custom error message.')
-      }
-    })
-  ]
+  server.middleware = (req, res, next) => {
+    if (req.url === '/infra') {
+      res.writeHead(200, {
+        'X-API-Server': 'https://api.cfp.io',
+        'X-Authentication-Server': 'https://auth.cfp.io'
+        // 'X-API-Server': 'http://dev-front.cfp.io:8080',
+        // 'X-Authentication-Server': 'http://dev-front.cfp.io:46001'
+      })
+      res.end()
+    }
+    else {
+      next()
+    }
+  }
 
   browserSync.instance = browserSync.init({
     startPath: '/',
     server: server,
-    browser: browser
+    browser: browser/*,
+    open: false*/
   })
 }
 
@@ -70,18 +58,18 @@ browserSync.use(browserSyncSpa({
   selector: '[ng-app]'// Only needed for angular apps
 }))
 
-gulp.task('serve', ['watch'], function () {
+gulp.task('serve', ['watch'], function() {
   browserSyncInit([path.join(conf.paths.tmp, '/serve'), conf.paths.src])
 })
 
-gulp.task('serve:dist', ['build'], function () {
+gulp.task('serve:dist', ['build'], function() {
   browserSyncInit(conf.paths.dist)
 })
 
-gulp.task('serve:e2e', ['inject'], function () {
+gulp.task('serve:e2e', ['inject'], function() {
   browserSyncInit([conf.paths.tmp + '/serve', conf.paths.src], [])
 })
 
-gulp.task('serve:e2e-dist', ['build'], function () {
+gulp.task('serve:e2e-dist', ['build'], function() {
   browserSyncInit(conf.paths.dist, [])
 })
