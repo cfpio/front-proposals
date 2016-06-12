@@ -2,6 +2,7 @@ import {config} from './index.config'
 import {router} from './index.router'
 import {i18n} from './index.language'
 
+import {directives} from './directives/directives.module'
 import {components} from './components/components.module'
 
 import {MainController} from './main/main.controller'
@@ -10,10 +11,11 @@ const dependencies = [
   'ngSanitize',
   'restangular',
   'ui.router',
-  'pascalprecht.translate'
+  'pascalprecht.translate',
+  'hc.marked'
 ]
 
-const app = angular.module('io.cfp.front', [...dependencies, components.name])
+const app = angular.module('io.cfp.front', [...dependencies, components.name, directives.name])
   .constant('moment', moment)
   .config(config)
   .config(router)
@@ -30,14 +32,28 @@ const app = angular.module('io.cfp.front', [...dependencies, components.name])
 const configLoaded = fetch('/infra', {method: 'HEAD'})
   .then(response => {
     const config = {
-      apiServer :  response.headers.get('X-API-Server'),
-      authServer :  response.headers.get('X-Authentication-Server')
+      apiServer: response.headers.get('X-API-Server'),
+      authServer: response.headers.get('X-Authentication-Server')
     }
-    return fetch(config.apiServer + '/api/application')
-      .then(response => response.json())
-      .then(appConfig => {
-        app.constant('AppConfig', Object.assign(appConfig, config))
+    return Promise.all([
+      fetch(config.apiServer + '/api/application')
+        .then(response => response.json())
+        .then(appConfig => {
+          app.constant('AppConfig', Object.assign(appConfig, config))
+        }),
+      fetch(config.apiServer + '/api/users/me', {
+        credentials: 'include'
       })
+        .then(response => {
+          if (response.status >= 200 && response.status < 300) {
+            return response.json()
+          }
+          else {
+            return null
+          }
+        })
+        .then(user => app.constant('AppUser', user))
+    ])
   })
 
 document.addEventListener('DOMContentLoaded', () => {

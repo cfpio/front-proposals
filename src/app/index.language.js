@@ -1,9 +1,9 @@
-export const i18n = ($translateProvider) => {
+export const i18n = ($translateProvider, AppUser) => {
   'ngInject'
   // Define translations for labels, buttons, error messages, ...
   $translateProvider.useSanitizeValueStrategy('escape')
 
-  $translateProvider.translations('fr-FR', {
+  $translateProvider.translations('fr', {
     'DIALOGS_ERROR': 'Erreur',
     'DIALOGS_ERROR_MSG': 'Une erreur inconnue s\'est produite.',
     'DIALOGS_CLOSE': 'Fermer',
@@ -19,14 +19,17 @@ export const i18n = ($translateProvider) => {
     'DIALOGS_YES': 'Oui',
     'DIALOGS_NO': 'Non',
     'lang': {
-      'fr-FR': 'Français',
-      'en-US': 'Anglais'
+      'fr': 'Français',
+      'en': 'Anglais'
     },
     'header': {
       'login': 'Se connecter',
       'logout': 'Se déconnecter',
       'dashboard': 'Dashboard',
-      'profil': 'Profil',
+      'review': 'Relecture',
+      'schedule': 'Calendrier',
+      'configure': 'Configurer',
+      'profile': 'Profil',
       'openUntil': 'Ouvert jusqu\'au ',
       'decision': 'Délibération le ',
       'admin': 'Admin'
@@ -56,13 +59,30 @@ export const i18n = ($translateProvider) => {
       'submittedTalks': 'Nombre de talks soumis : ',
       'sendedCoTalks': 'Talks (en tant que cospeaker) envoyés'
     },
-    'profil': {
+    'profile': {
+      'title': 'Mon profil',
+      'lastname': 'Nom',
+      'firstname': 'Prénom',
+      'gender': 'Sexe',
+      'genderMale': 'Homme',
+      'genderFemale': 'Femme',
+      'language': 'Langue préférée',
+      'phone': 'Téléphone',
+      'company': 'Entreprise',
+      'bio': 'Bio',
+      'bioPreview': 'Prévisualisation',
+      'twitter': 'Profil Twitter',
+      'googleplus': 'Profil Google +',
+      'github': 'Profil Github',
+      'social': 'Autres URLs (Blog, Linkedin, ...)',
+      'tshirtSize': 'Taille t-shirt',
+      // 'avatar': 'Image de profil :',
+      // 'dropImage': 'Déposer l\'image ici',
+      // 'selectImage': 'Parcourir',
+      'cancel': 'Annuler',
       'save': 'Sauvegarder',
       'success': 'Profil sauvegardé',
-      'error': 'Erreur lors de l\'enregistrement',
-      'avatar': 'Image de profil :',
-      'dropImage': 'Déposer l\'image ici',
-      'selectImage': 'Parcourir'
+      'error': 'Erreur lors de l\'enregistrement'
     },
     'login': {
       'title': 'Bienvenue sur le Call For Paper du Breizhcamp.',
@@ -319,6 +339,11 @@ export const i18n = ($translateProvider) => {
       'backendcommunication': 'Désolé, il y a eu un problème avec le serveur distant',
       'noInternet': 'Désolé, il y a eu une problème de connexion, êtes vous connecté à internet ?'
     },
+    'form': {
+      errors: {
+        required: 'Ce champ est obligatoire'
+      }
+    },
     'just_now': 'à l\'instant',
     'seconds_ago': 'il y a {{time}} secondes',
     'a_minute_ago': 'il y a une minute',
@@ -350,7 +375,7 @@ export const i18n = ($translateProvider) => {
     'over_a_year_from_now': 'dans plus d\'un an'
   })
 
-  $translateProvider.translations('en-US', {
+  $translateProvider.translations('en', {
     'DIALOGS_ERROR': 'Error',
     'DIALOGS_ERROR_MSG': 'An unknown error has occurred.',
     'DIALOGS_CLOSE': 'Close',
@@ -373,7 +398,10 @@ export const i18n = ($translateProvider) => {
       'login': 'Login',
       'logout': 'Logout',
       'dashboard': 'Dashboard',
-      'profil': 'Profil',
+      'review': 'Review',
+      'schedule': 'Schedule',
+      'configure': 'Configure',
+      'profile': 'Profile',
       'openUntil': 'Open until the ',
       'decision': 'Decision the ',
       'admin': 'Admin'
@@ -402,14 +430,31 @@ export const i18n = ($translateProvider) => {
       'submittedTalks': 'Submitted talks count: ',
       'sendedCoTalks': 'Submitted cospeaker talks'
     },
-    'profil': {
+    'profile': {
+      'title': 'My profile',
+      'lastname': 'Last name',
+      'firstname': 'First name',
+      'gender': 'Gender',
+      'genderMale': 'Male',
+      'genderFemale': 'Female',
+      'language': 'Favorite language',
+      'phone': 'Phone',
+      'company': 'Company',
+      'bio': 'Bio',
+      'bioPreview': 'Preview',
+      'twitter': 'Twitter profile',
+      'googleplus': 'Google + profile',
+      'github': 'Github profile',
+      'social': 'Other URLs (Blog, Linkedin, ...)',
+      'tshirtSize': 'T-shirt size',
+      // 'avatar': 'Profile picture',
+      // 'hintAvatar': 'Select a picture for the website (least 360x360 and 5MB max)',
+      // 'dropImage': 'Drop image here',
+      // 'selectImage': 'Browse',
+      'cancel': 'Cancel',
       'save': 'Save',
-      'success': 'Profil saved',
-      'error': 'Error saving the profil',
-      'avatar': 'Profil picture :',
-      'hintAvatar': 'Select a picture for the website (least 360x360 and 5MB max)',
-      'dropImage': 'Drop image here',
-      'selectImage': 'Browse'
+      'success': 'Profile saved',
+      'error': 'Error saving the profile'
     },
     'login': {
       'email': 'Email',
@@ -651,6 +696,11 @@ export const i18n = ($translateProvider) => {
       'backendcommunication': 'Sorry, a problem occure with the server',
       'noInternet': 'Sorry, it seems that your are not connected to internet'
     },
+    'form': {
+      errors: {
+        required: 'This field is required'
+      }
+    },
     'just_now': 'just now',
     'seconds_ago': '{{time}} seconds ago',
     'a_minute_ago': 'a minute ago',
@@ -682,5 +732,5 @@ export const i18n = ($translateProvider) => {
     'over_a_year_from_now': 'over a year from now'
   })
 
-  $translateProvider.preferredLanguage('fr-FR')
+  $translateProvider.preferredLanguage((AppUser && AppUser.language) || 'fr')
 }

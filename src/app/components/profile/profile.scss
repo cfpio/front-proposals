@@ -1,4 +1,13 @@
-// TODO: Add your components rules here
 .View--Profile {
+  h2 {
+    margin-top: 0;
+  }
 
+  .bio-preview {
+    height: auto;
+  }
+
+  .buttons {
+    text-align: right;
+  }
 }

@@ -18,18 +18,11 @@ export const home = angular
     $stateProvider
       .state('home', {
         abstract: true,
-        template: '<view-home></view-home>' // TODO give a try to UI-Router 1.0 alpha to be able to route to components
-                                            // directly (see https://github.com/angular-ui/ui-router/issues/2627)
+        template: '<view-home></view-home>'
       })
-      .state('home.welcome', {
+      .state('welcome', {
+        parent: 'home',
         url: '/home',
-        views: {
-          'top-menu': {
-            template: '<top-menu></top-menu>'
-          },
-          '': {
-            template: '<welcome></welcome>'
-          }
-        }
+        template: '<welcome></welcome>'
       })
   })
