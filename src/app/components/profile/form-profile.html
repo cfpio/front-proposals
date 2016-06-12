@@ -52,7 +52,8 @@
     <!-- Phone -->
     <div class="form-group col-sm-6">
       <label class="control-label" for="phone">{{'profile.phone' | translate}}</label>
-      <input-tel fid="phone" name="phone" ng-model="$ctrl.model.phone"></input-tel>
+      <input type="tel" id="phone" name="phone" class="form-control" placeholder="{{'profile.phone' | translate}}"
+             ng-model="$ctrl.model.phone"/>
     </div>
 
     <!-- Company -->
