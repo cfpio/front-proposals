@@ -18,11 +18,18 @@ export const home = angular
     $stateProvider
       .state('home', {
         abstract: true,
-        template: '<view-home></view-home>'
+        component: 'viewHome'
       })
       .state('welcome', {
         parent: 'home',
         url: '/home',
-        template: '<welcome></welcome>'
+        views: {
+          'top-menu': {
+            component: 'topMenu'
+          },
+          '': {
+            component: 'welcome'
+          }
+        }
       })
   })
