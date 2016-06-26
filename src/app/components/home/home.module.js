@@ -7,7 +7,7 @@ export const home = angular
     'ui.router'
   ])
 
-  .component('viewHome', Home)
+  .component('home', Home)
   .component('topMenu', TopMenu)
   .component('welcome', Welcome)
 
@@ -18,11 +18,20 @@ export const home = angular
     $stateProvider
       .state('home', {
         abstract: true,
-        component: 'viewHome'
+        component: 'home',
+        resolve: {
+          application: (Restangular) => Restangular.one('application').get()
+        }
       })
       .state('welcome', {
-        parent: 'home',
         url: '/home',
+        parent: 'home',
+        resolve: {
+          user: (Restangular) => { // no need to be authenticated for welcome page
+            return Restangular.one('users', 'me').get().then(user => user, () => null)
+          },
+          tracks: (Restangular) => Restangular.all('tracks').getList()
+        },
         views: {
           'top-menu': {
             component: 'topMenu'
@@ -30,6 +39,13 @@ export const home = angular
           '': {
             component: 'welcome'
           }
+        }
+      })
+      .state('home.secured', { // parent state for all secured pages
+        abstract: true,
+        template: '<ui-view></ui-view>',
+        resolve: {
+          user: (Restangular) => Restangular.one('users', 'me').get()
         }
       })
   })

@@ -1,13 +1,15 @@
 class TopMenuController {
-  constructor(AppUser, AuthenticationService) {
+  constructor(AuthenticationService) {
     'ngInject'
 
-    this.user = AppUser
     this.authService = AuthenticationService
   }
 }
 
 export const TopMenu = {
   controller: TopMenuController,
-  templateUrl: 'app/components/home/top-menu/top-menu.html'
+  templateUrl: 'app/components/home/top-menu/top-menu.html',
+  bindings: {
+    user: '='
+  }
 }

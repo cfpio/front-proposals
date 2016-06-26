@@ -1,4 +1,4 @@
-export const i18n = ($translateProvider, AppUser) => {
+export const i18n = ($translateProvider) => {
   'ngInject'
   // Define translations for labels, buttons, error messages, ...
   $translateProvider.useSanitizeValueStrategy('escape')
@@ -55,7 +55,7 @@ export const i18n = ($translateProvider, AppUser) => {
       'noSendedTalks': 'Vous n\'avez pas encore proposé de talk',
       'verification': 'Vérification',
       'verificationNeeded': 'Un e-mail a été envoyé à votre adresse, cliquez sur le lien présent dans celui-ci pour valider'
-                          + ' votre compte.',
+      + ' votre compte.',
       'submittedTalks': 'Nombre de talks soumis : ',
       'sendedCoTalks': 'Talks (en tant que cospeaker) envoyés'
     },
@@ -140,7 +140,7 @@ export const i18n = ($translateProvider, AppUser) => {
     },
     'step1': {
       'warning': 'Attention les informations enregistrées lors de cette étape modifieront votre profil pour tous'
-                + ' les talks déjà proposés.',
+      + ' les talks déjà proposés.',
       'email': 'Adresse email * :',
       'lastname': 'Nom * :',
       'firstname': 'Prénom * :',
@@ -165,12 +165,12 @@ export const i18n = ($translateProvider, AppUser) => {
       'hintDescription': 'Donnez une description de votre présentation. Elle sera utilisée sur le site web.',
       'references': 'Références ou compléments d\'informations :',
       'hintReferences': 'Y a-t-il des conférences où vous avez déjà fait des présentations ? Si vous pouvez donner'
-                      + ' un lien vers celle(s)-ci ça serait bien.',
+      + ' un lien vers celle(s)-ci ça serait bien.',
       'difficulty': 'Difficulté * (Débutant, Confirmé, Expert) :',
       'track': 'Catégorie * :',
       'cospeaker': 'Co-conférenciers :',
       'hintCospeaker': 'Si vous n\'êtes pas seul lors de la présentation, donnez l\'email des autres conférenciers.'
-                      + ' ATTENTION, ceux-ci doivent être préalablement inscrit sur le CFP avec cette même adresse.',
+      + ' ATTENTION, ceux-ci doivent être préalablement inscrit sur le CFP avec cette même adresse.',
       'cospeakerNotFound': 'Le cospeaker avec l\'adresse {{value}} n\'existe pas.',
       'beginner': 'Débutant',
       'confirmed': 'Confirmé',
@@ -191,7 +191,7 @@ export const i18n = ($translateProvider, AppUser) => {
     },
     'step3': {
       'header1': 'Vous pouvez renseigner ici les informations nécessaires pour votre venue. Ces informations'
-                + ' seront minutieusement étudiées pour notre décision. Ne choisissez oui que si vous en avez besoin.',
+      + ' seront minutieusement étudiées pour notre décision. Ne choisissez oui que si vous en avez besoin.',
       'header2': 'Un petit déjeuner et un déjeuner sont offerts le jour de l\'évènement.',
       'financial': 'Avez-vous besoin d’une aide financière ? * :',
       'labelTravel': 'Voyage :',
@@ -207,7 +207,7 @@ export const i18n = ($translateProvider, AppUser) => {
       'title': 'Confirmation',
       'text': 'Êtes-vous sûr de vouloir envoyer ce talk ? Une fois envoyé, vous ne serez pas en mesure de le modifier.',
       'textDelete': 'Êtes-vous sûr de vouloir suprimer cette session ? Une fois supprimée, vous ne serez pas en mesure'
-                  + ' de la restaurer.',
+      + ' de la restaurer.',
       'confirm': 'Envoyer',
       'confirmDelete': 'Supprimer',
       'cancel': 'Annuler',
@@ -246,7 +246,7 @@ export const i18n = ($translateProvider, AppUser) => {
     'result': {
       'success': 'Bravo !',
       'successMessage': 'Votre présentation a été envoyée. Vous recevrez bientôt un email de confirmation.'
-                      + ' Nous vous recontacterons dès que nous aurons fait notre choix.',
+      + ' Nous vous recontacterons dès que nous aurons fait notre choix.',
       'goToHome': 'Retour à la page principale'
     },
     'contact': {
@@ -533,13 +533,13 @@ export const i18n = ($translateProvider, AppUser) => {
       'hintDescription': 'Give a description of your talk. This description will be used to fill the website.',
       'references': 'References or complement informations :',
       'hintReferences': 'Is there any conferences where you have already spoken ? If you could give a link to the'
-                      + ' presentation, it\'s better.',
+      + ' presentation, it\'s better.',
       'complement': 'Recommendation and additional information:',
       'difficulty': 'Difficulty * (Beginner, Confirmed, Expert):',
       'track': 'Track *:',
       'cospeaker': 'Co-speaker:',
       'hintCospeaker': 'If you are not alone on stage, give the co-speaker email. WARNING : cospeakers must have'
-                      + ' create an account with this email before.',
+      + ' create an account with this email before.',
       'cospeakerNotFound': 'The cospeaker with email {{value}} doesn\'t exist.',
       'beginner': 'Beginner',
       'confirmed': 'Confirmed',
@@ -560,7 +560,7 @@ export const i18n = ($translateProvider, AppUser) => {
     },
     'step3': {
       'header1': 'Here is all the informations relatives to your venue. The following informations will be carefuly'
-                + ' study for our decision. So please select Yes, only if needed.',
+      + ' study for our decision. So please select Yes, only if needed.',
       'header2': 'Breakfast and lunch is offered the days of the event.',
       'financial': 'Do you need financial help ? *:',
       'labelTravel': 'Travel',
@@ -614,7 +614,7 @@ export const i18n = ($translateProvider, AppUser) => {
     'result': {
       'success': 'Well done !',
       'successMessage': 'Your talk has been send. You will soon receive a confirmation email. We will contact you'
-                      + ' as soon as we will make our decision.',
+      + ' as soon as we will make our decision.',
       'goToHome': 'Back to main page'
     },
     'contact': {
@@ -732,5 +732,4 @@ export const i18n = ($translateProvider, AppUser) => {
     'over_a_year_from_now': 'over a year from now'
   })
 
-  $translateProvider.preferredLanguage((AppUser && AppUser.language) || 'fr')
 }

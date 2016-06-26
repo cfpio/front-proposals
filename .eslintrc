@@ -28,7 +28,7 @@
     "space-in-parens": [2, "never"],
     "no-multiple-empty-lines": [2, { "max": 1}],
     "no-use-before-define": [2, "nofunc"],
-    "brace-style": [2, "stroustrup", { "allowSingleLine": true }],
+    "brace-style": [2, "1tbs", { "allowSingleLine": true }],
     "comma-dangle": [2, "never"],
     "comma-style": [2, "last"],
     "no-underscore-dangle": 0,

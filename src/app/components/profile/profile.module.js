@@ -14,11 +14,8 @@ export const profile = angular
     // Declare routes
     $stateProvider
       .state('profile', {
-        parent: 'home',
+        parent: 'home.secured',
         url: '/profile',
-        component: 'cfpFormProfile',
-        resolve: {
-          user: (Restangular) => Restangular.one('users/me').get()
-        }
+        component: 'cfpFormProfile'
       })
   })

@@ -14,8 +14,7 @@ export function showErrors($timeout, $interpolate) {
     var inputEl
     if (options && options.inputName) {
       inputEl = element[0].querySelector('[name="' + options.inputName + '"]')
-    }
-    else {
+    } else {
       inputEl = element[0].querySelector('[name]')
       if (!inputEl) {
         throw 'show-errors element has no child input elements with \'name\' attribute'
@@ -79,8 +78,7 @@ export function showErrors($timeout, $interpolate) {
               watchErrors()
             }
           })
-        }
-        else {
+        } else {
           watchErrors()
         }
       }

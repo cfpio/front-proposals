@@ -1,15 +1,14 @@
 class WelcomeController {
-  constructor(AppConfig, Restangular) {
+  constructor() {
     'ngInject'
-    this.config = AppConfig
-
-    Restangular.all('tracks').getList().then((tracks) => {
-      this.tracks = tracks.filter(t => t.referenced)
-    })
   }
 }
 
 export const Welcome = {
   controller: WelcomeController,
-  templateUrl: 'app/components/home/welcome/welcome.html'
+  templateUrl: 'app/components/home/welcome/welcome.html',
+  bindings: {
+    config: '=application',
+    tracks: '='
+  }
 }

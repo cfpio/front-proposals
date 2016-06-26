@@ -5,7 +5,7 @@ export const security = angular
   .module('io.cfp.front.components.security', [])
 
   .provider('AuthenticationService', AuthenticationService)
-  .factory('AuthenticationInterceptor', AuthenticationInterceptor)
+  .provider('AuthenticationInterceptor', AuthenticationInterceptor)
 
   .config(($httpProvider) => {
     'ngInject'
