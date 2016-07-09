@@ -27,9 +27,7 @@ export const home = angular
         url: '/home',
         parent: 'home',
         resolve: {
-          user: (Restangular) => { // no need to be authenticated for welcome page
-            return Restangular.one('users', 'me').get().then(user => user, () => null)
-          },
+          user: (Users) => Users.me().then(user => user, () => null), // no need to be authenticated for welcome page
           tracks: (Restangular) => Restangular.all('tracks').getList()
         },
         views: {
@@ -45,7 +43,7 @@ export const home = angular
         abstract: true,
         template: '<ui-view></ui-view>',
         resolve: {
-          user: (Restangular) => Restangular.one('users', 'me').get()
+          user: (Users) => Users.me()
         }
       })
   })

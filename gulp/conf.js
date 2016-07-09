@@ -24,8 +24,16 @@ exports.paths = {
  *  to inject css preprocessor deps and js files in karma
  */
 exports.wiredep = {
-  exclude: [/jquery/, /\/bootstrap\.js$/, /\/bootstrap-sass\/.*\.js/, /\/bootstrap\.css/],
+  exclude: [/jquery/, /angular-locale_[^.]+\.js/, /\/bootstrap\.js$/, /\/bootstrap-sass\/.*\.js/, /\/bootstrap\.css/],
   directory: 'vendor'
+}
+
+/**
+ * Bower dependencies that must not be bundled but copied as is in dist. Key is the bower dependency name, value is
+ * the sub dist directory to copy files to.
+ */
+exports.noBundle = {
+  'angular-i18n': 'l10n'
 }
 
 /**

@@ -1,11 +1,14 @@
 class FormProfileController {
 
-  constructor($timeout, $scope, $state) {
+  constructor($timeout, $scope, $state, $translate) {
     'ngInject'
 
     this.$timeout = $timeout
     this.$scope = $scope
     this.$state = $state
+    this.$translate = $translate
+
+    this.availableLanguages = $translate.getAvailableLanguageKeys()
   }
 
   onCancel() {
@@ -25,6 +28,10 @@ class FormProfileController {
 
   reload() {
     this.$state.reload()
+  }
+
+  updateLanguage(lang) {
+    this.$translate.use(lang)
   }
 }
 

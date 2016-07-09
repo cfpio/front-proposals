@@ -9,7 +9,8 @@
     <!-- Last name -->
     <div class="form-group col-sm-6" show-errors>
       <label class="control-label required" for="lastname">{{'profile.lastname' | translate}}</label>
-      <input type="text" id="lastname" name="lastname" class="form-control" placeholder="{{'profile.lastname' | translate}}"
+      <input type="text" id="lastname" name="lastname" class="form-control"
+             placeholder="{{'profile.lastname' | translate}}"
              ng-model="$ctrl.user.lastname" required>
       <p ng-messages="$ctrl.form.lastname.$error" class="help-block">
         <span ng-message="required" translate>form.errors.required</span>
@@ -19,7 +20,8 @@
     <!-- First name -->
     <div class="form-group col-sm-6" show-errors>
       <label class="control-label required" for="firstname">{{'profile.firstname' | translate}}</label>
-      <input type="text" id="firstname" name="firstname" class="form-control" placeholder="{{'profile.firstname' | translate}}"
+      <input type="text" id="firstname" name="firstname" class="form-control"
+             placeholder="{{'profile.firstname' | translate}}"
              ng-model="$ctrl.user.firstname" required>
       <p ng-messages="$ctrl.form.firstname.$error" class="help-block">
         <span ng-message="required" translate>form.errors.required</span>
@@ -40,9 +42,8 @@
     <div class="form-group col-sm-6" show-errors>
       <label class="control-label required" for="language">{{'profile.language' | translate}}</label>
       <select id="language" name="language" class="form-control"
-              ng-model="$ctrl.user.language">
-        <option value="fr">Français</option>
-        <option value="en">English</option>
+              ng-model="$ctrl.user.language" ng-change="$ctrl.updateLanguage($ctrl.user.language)"
+              ng-options="lang as ('lang.' + lang | translate) for lang in $ctrl.availableLanguages track by lang">
       </select>
       <p ng-messages="$ctrl.form.language.$error" class="help-block">
         <span ng-message="required" translate>form.errors.required</span>
@@ -59,7 +60,8 @@
     <!-- Company -->
     <div class="form-group col-sm-6">
       <label class="control-label" for="company">{{'profile.company' | translate}}</label>
-      <input type="text" id="company" name="company" class="form-control" placeholder="{{'profile.company' | translate}}"
+      <input type="text" id="company" name="company" class="form-control"
+             placeholder="{{'profile.company' | translate}}"
              ng-model="$ctrl.user.company">
     </div>
 
@@ -83,14 +85,16 @@
     <!-- Twitter -->
     <div class="form-group col-sm-6">
       <label class="control-label" for="twitter">{{'profile.twitter' | translate}}</label>
-      <input type="text" id="twitter" name="twitter" class="form-control" placeholder="{{'profile.twitter' | translate}}"
+      <input type="text" id="twitter" name="twitter" class="form-control"
+             placeholder="{{'profile.twitter' | translate}}"
              ng-model="$ctrl.user.twitter">
     </div>
 
     <!-- Google + -->
     <div class="form-group col-sm-6">
       <label class="control-label" for="googleplus">{{'profile.googleplus' | translate}}</label>
-      <input type="text" id="googleplus" name="googleplus" class="form-control" placeholder="{{'profile.googleplus' | translate}}"
+      <input type="text" id="googleplus" name="googleplus" class="form-control"
+             placeholder="{{'profile.googleplus' | translate}}"
              ng-model="$ctrl.user.googleplus">
     </div>
 
