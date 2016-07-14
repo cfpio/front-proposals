@@ -7,15 +7,14 @@ const browserSyncSpa = require('browser-sync-spa')
 
 const util = require('util')
 
-const proxyMiddleware = require('http-proxy-middleware')
-
 function browserSyncInit(baseDir, browser) {
   browser = browser === undefined ? 'default' : browser
 
   let routes = null
   if (baseDir === conf.paths.src || (util.isArray(baseDir) && baseDir.indexOf(conf.paths.src) !== -1)) {
     routes = {
-      '/vendor': 'vendor'
+      '/vendor': 'vendor',
+      '/l10n': 'vendor/angular-i18n'
     }
   }
 

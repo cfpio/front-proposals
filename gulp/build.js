@@ -3,7 +3,8 @@ const gulp = require('gulp')
 const conf = require('./conf')
 
 const $ = require('gulp-load-plugins')({
-  pattern: ['gulp-*', 'main-bower-files', 'uglify-save-license', 'del']
+  pattern: ['gulp-*', 'main-bower-files', 'uglify-save-license', 'del', 'lodash', 'bower-config'],
+  rename: {lodash: '_', 'bower-config': 'bowerConfig'}
 })
 
 gulp.task('partials', () => {
@@ -25,7 +26,7 @@ gulp.task('partials', () => {
 })
 
 gulp.task('html', ['inject', 'partials'], () => {
-  const partialsInjectFile = gulp.src(path.join(conf.paths.tmp, '/partials/templateCacheHtml.js'), { read: false })
+  const partialsInjectFile = gulp.src(path.join(conf.paths.tmp, '/partials/templateCacheHtml.js'), {read: false})
   const partialsInjectOptions = {
     starttag: '<!-- inject:partials -->',
     ignorePath: path.join(conf.paths.tmp, '/partials'),
@@ -33,16 +34,16 @@ gulp.task('html', ['inject', 'partials'], () => {
   }
 
   // Add .*/ prefix to support gulp-filter@4
-  const htmlFilter = $.filter('.*/*.html', { restore: true })
-  const jsFilter = $.filter('.*/**/*.js', { restore: true })
-  const cssFilter = $.filter('.*/**/*.css', { restore: true })
+  const htmlFilter = $.filter('.*/*.html', {restore: true})
+  const jsFilter = $.filter('.*/**/*.js', {restore: true})
+  const cssFilter = $.filter('.*/**/*.css', {restore: true})
 
   return gulp.src(path.join(conf.paths.tmp, '/serve/*.html'))
     .pipe($.inject(partialsInjectFile, partialsInjectOptions))
     .pipe($.useref())
     .pipe(jsFilter)
     .pipe($.sourcemaps.init())
-    .pipe($.uglify({ preserveComments: $.uglifySaveLicense })).on('error', conf.errorHandler('Uglify'))
+    .pipe($.uglify({preserveComments: $.uglifySaveLicense})).on('error', conf.errorHandler('Uglify'))
     .pipe($.rev())
     .pipe($.sourcemaps.write('maps'))
     .pipe(jsFilter.restore)
@@ -64,7 +65,7 @@ gulp.task('html', ['inject', 'partials'], () => {
     }))
     .pipe(htmlFilter.restore)
     .pipe(gulp.dest(path.join(conf.paths.dist, '/')))
-    .pipe($.size({ title: path.join(conf.paths.dist, '/'), showFiles: true }))
+    .pipe($.size({title: path.join(conf.paths.dist, '/'), showFiles: true}))
 })
 
 // Only applies for fonts from bower dependencies
@@ -89,8 +90,20 @@ gulp.task('other', () => {
     .pipe(gulp.dest(path.join(conf.paths.dist, '/')))
 })
 
+// bower dependencies to copy unchanged in dist
+gulp.task('no-bundle', () => {
+  const cwd = process.cwd()
+  const bowerDirectory = path.join(cwd, $.bowerConfig.read(cwd).directory)
+  const bowerFiles = $.mainBowerFiles()
+  $._.each(conf.noBundle, function(target, dependency) {
+    gulp.src($._.filter(bowerFiles, function(file) {
+      return file.startsWith(path.join(bowerDirectory, dependency))
+    })).pipe(gulp.dest(path.join(conf.paths.dist, target)));
+  })
+})
+
 gulp.task('clean', () => {
   return $.del([path.join(conf.paths.dist, '/'), path.join(conf.paths.tmp, '/')])
 })
 
-gulp.task('build', ['html', 'fonts', 'other'])
+gulp.task('build', ['html', 'fonts', 'other', 'no-bundle'])
