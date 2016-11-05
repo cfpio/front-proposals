@@ -48,8 +48,8 @@ function browserSyncInit(baseDir, browser) {
   browserSync.instance = browserSync.init({
     startPath: '/',
     server: server,
-    browser: browser/*,
-    open: false*/
+    browser: browser,
+    open: false
   })
 }
 

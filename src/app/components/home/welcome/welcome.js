@@ -9,6 +9,8 @@ export const Welcome = {
   templateUrl: 'app/components/home/welcome/welcome.html',
   bindings: {
     config: '=application',
-    tracks: '='
+    tracks: '=',
+    drafts: '=',
+    proposals: '='
   }
 }

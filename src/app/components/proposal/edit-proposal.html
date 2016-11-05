@@ -1,0 +1,135 @@
+<div class="row">
+  <div class="col-md-12">
+    <ng-switch on="$ctrl.proposal.fromServer">
+      <h1 ng-switch-when="true" translate translate-values="{title: $ctrl.proposalTitle}">
+        PROPOSAL.EDIT.TITLE</h1>
+      <h1 ng-switch-default translate>PROPOSAL.EDIT.TITLE.NEW</h1></ng-switch>
+    <span class="pull-right small" translate>COMMON.FORM.HELP.REQUIRED</span>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-12">
+    <form class="form-horizontal" novalidate name="proposalForm">
+
+      <div class="form-group">
+        <div
+          ng-class="{'has-success': proposalForm.name.$dirty && proposalForm.name.$valid, 'has-error': proposalForm.name.$dirty && proposalForm.name.$invalid}">
+          <label class="col-md-2 control-label required" translate>PROPOSAL.FORM.NAME.LABEL</label>
+          <div class="col-md-6">
+            <input class="form-control" ng-model="$ctrl.proposal.name" name="name" required autofocus
+                   placeholder="{{'PROPOSAL.FORM.NAME.PLACEHOLDER'| translate}}">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <span class="help-block small" translate>PROPOSAL.FORM.NAME.HELP</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div
+          ng-class="{'has-success': proposalForm.description.$dirty && proposalForm.description.$valid, 'has-error': proposalForm.description.$dirty && proposalForm.description.$invalid}">
+          <label class="col-md-2 control-label required" translate>PROPOSAL.FORM.DESCRIPTION.LABEL</label>
+          <div class="col-md-6">
+          <textarea class="form-control" ng-model="$ctrl.proposal.description" name="description" required
+                    placeholder="{{'PROPOSAL.FORM.DESCRIPTION.PLACEHOLDER'| translate}}" rows="8"></textarea>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <span class="help-block small" translate>PROPOSAL.FORM.DESCRIPTION.HELP</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div
+          ng-class="{'has-success': proposalForm.references.$dirty && proposalForm.references.$valid, 'has-error': proposalForm.references.$dirty && proposalForm.references.$invalid}">
+          <label class="col-md-2 control-label" translate>PROPOSAL.FORM.REFERENCES.LABEL</label>
+          <div class="col-md-6">
+          <textarea class="form-control" ng-model="$ctrl.proposal.references" name="references" required
+                    placeholder="{{'PROPOSAL.FORM.REFERENCES.PLACEHOLDER'| translate}}" rows="10"></textarea>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <span class="help-block small" translate>PROPOSAL.FORM.REFERENCES.HELP</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div ng-class="{'has-success': proposalForm.format.$dirty && proposalForm.format.$valid}">
+          <label class="col-md-2 control-label required" translate>PROPOSAL.FORM.FORMAT.LABEL</label>
+          <div class="col-md-6">
+            <select class="form-control" name="format"
+                    ng-options="format.id as (format.name + ' (' + format.duration + ' min)') for format in $ctrl.formats"
+                    ng-model="$ctrl.proposal.format" required></select>
+
+          </div>
+        </div>
+        <div class="col-md-4">
+          <span class="help-block small" ng-bind="$ctrl.formatObjects[$ctrl.proposal.format].description"></span>
+        </div>
+      </div>
+
+      <div class="form-group" ng-class="{'has-success': proposalForm.language.$dirty && proposalForm.language.$valid}">
+        <label class="col-md-2 control-label" translate>PROPOSAL.FORM.LANGUAGE.LABEL</label>
+        <div class="col-md-6">
+          <select class="form-control" name="language"
+                  ng-options="lang as ('LANG.' + lang | translate) for lang in $ctrl.availableLanguages"
+                  ng-model="$ctrl.proposal.language"></select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div ng-class="{'has-success': proposalForm.track.$dirty && proposalForm.track.$valid}">
+          <label class="col-md-2 control-label required" translate>PROPOSAL.FORM.TRACK.LABEL</label>
+          <div class="col-md-6">
+            <select class="form-control" name="track"
+                    ng-options="track.id as track.libelle for track in $ctrl.tracks"
+                    ng-model="$ctrl.proposal.trackId" required>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <span class="help-block small" ng-bind="$ctrl.trackObjects[$ctrl.proposal.trackId].description"></span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div ng-class="{'has-success': proposalForm.difficulty.$dirty && proposalForm.difficulty.$valid}">
+          <label class="col-md-2 control-label required" translate>PROPOSAL.FORM.DIFFICULTY.LABEL</label>
+          <div class="col-md-6">
+            <select class="form-control" name="difficulty"
+                    ng-options="difficulty.value as ('PROPOSAL.FORM.DIFFICULTY.LEVEL.' + difficulty.level + '.LABEL' | translate) for difficulty in $ctrl.difficultyLevels"
+                    ng-model="$ctrl.proposal.difficulty" required>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <span class="help-block small" ng-show="$ctrl.proposal.difficulty">
+            {{'PROPOSAL.FORM.DIFFICULTY.LEVEL.' + $ctrl.difficultyLevels[$ctrl.proposal.difficulty - 1].level + '.DESCRIPTION' | translate}}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-2 control-label" translate>PROPOSAL.FORM.COSPEAKERS.LABEL</label>
+        <div class="col-md-6">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 col-lg-8">
+          <a ui-sref="welcome" class="btn btn-default" translate>COMMON.BUTTON.CANCEL</a>
+          <button type="button" class="btn btn-primary" ng-disabled="proposalForm.$pristine || proposalForm.$invalid"
+                  ng-click="$ctrl.save($ctrl.proposal)" translate>
+            PROPOSAL.FORM.BUTTON.SAVE_DRAFT
+          </button>
+          <button type="button" class="btn btn-warning pull-right" ng-if="$ctrl.proposal.submit"
+                  ng-click="$ctrl.submit($ctrl.proposal)" translate>
+            PROPOSAL.FORM.BUTTON.SUBMIT
+          </button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

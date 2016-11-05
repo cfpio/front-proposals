@@ -4,7 +4,7 @@ import {i18n} from './index.language'
 
 import {directives} from './directives/directives.module'
 import {components} from './components/components.module'
-import {shared} from './shared/shared.module'
+import {services} from './services/services.module'
 
 const dependencies = [
   'ngSanitize',
@@ -15,7 +15,7 @@ const dependencies = [
   'tmh.dynamicLocale'
 ]
 
-const app = angular.module('io.cfp.front', [...dependencies, components.name, directives.name, shared.name])
+const app = angular.module('io.cfp.front', [...dependencies, components.name, directives.name, services.name])
   .constant('moment', moment)
   .config(config)
   .config(router)

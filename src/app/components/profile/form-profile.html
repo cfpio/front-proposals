@@ -43,7 +43,7 @@
       <label class="control-label required" for="language">{{'profile.language' | translate}}</label>
       <select id="language" name="language" class="form-control"
               ng-model="$ctrl.user.language" ng-change="$ctrl.updateLanguage($ctrl.user.language)"
-              ng-options="lang as ('lang.' + lang | translate) for lang in $ctrl.availableLanguages track by lang">
+              ng-options="lang as ('LANG.' + lang | translate) for lang in $ctrl.availableLanguages track by lang">
       </select>
       <p ng-messages="$ctrl.form.language.$error" class="help-block">
         <span ng-message="required" translate>form.errors.required</span>

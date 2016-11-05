@@ -2,7 +2,7 @@ describe('AuthenticationInterceptor', () => {
 
   let service, serviceProvider, $location, $q, AuthenticationService
 
-  beforeEach(angular.mock.module('io.cfp.front.components.security', ($provide, AuthenticationInterceptorProvider)=> {
+  beforeEach(angular.mock.module('io.cfp.front.services.security', ($provide, AuthenticationInterceptorProvider)=> {
 
     $location = { // let's make a fake $location service
       path: ()=> ''

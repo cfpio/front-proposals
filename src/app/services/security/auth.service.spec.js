@@ -2,7 +2,7 @@ describe('AuthenticationService', () => {
 
   let service, serviceProvider, $window, $location
 
-  beforeEach(angular.mock.module('io.cfp.front.components.security', ($provide, AuthenticationServiceProvider)=> {
+  beforeEach(angular.mock.module('io.cfp.front.services.security', ($provide, AuthenticationServiceProvider)=> {
 
     $window = {} // let's make a fake $window service
     $location = {} // and a fake $location service

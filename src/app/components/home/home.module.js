@@ -4,7 +4,8 @@ import {Welcome} from './welcome/welcome'
 
 export const home = angular
   .module('io.cfp.front.components.home', [
-    'ui.router'
+    'ui.router',
+    'io.cfp.front.services.resource'
   ])
 
   .component('home', Home)
@@ -20,15 +21,18 @@ export const home = angular
         abstract: true,
         component: 'home',
         resolve: {
-          application: (Restangular) => Restangular.one('application').get()
+          application: (Restangular) => Restangular.one('application').get(),
+          tracks: (Tracks) => Tracks.getList(),
+          formats: (Formats) => Formats.getList()
         }
       })
       .state('welcome', {
         url: '/home',
         parent: 'home',
         resolve: {
-          user: (Users) => Users.me().then(user => user, () => null), // no need to be authenticated for welcome page
-          tracks: (Restangular) => Restangular.all('tracks').getList()
+          user: (Users) => Users.me().then(user => user, () => null), // no need to be authenticated for welcome page,
+          drafts: (user, Drafts) => user ? Drafts.getList() : null,
+          proposals: (user, Proposals) => user ? Proposals.getList() : null
         },
         views: {
           'top-menu': {
@@ -43,7 +47,9 @@ export const home = angular
         abstract: true,
         template: '<ui-view></ui-view>',
         resolve: {
-          user: (Users) => Users.me()
+          user: (Users) => Users.me(),
+          drafts: (Drafts) => Drafts.getList(),
+          proposals: (Proposals) => Proposals.getList()
         }
       })
   })

@@ -1,9 +1,9 @@
-import { profile } from './profile/profile.module'
-import { security } from './security/security.module'
-import { home } from './home/home.module'
+import {profile} from './profile/profile.module'
+import {home} from './home/home.module'
+import {proposal} from './proposal/proposal.module'
 
 export const components = angular.module('io.cfp.front.components', [
   profile.name,
-  security.name,
-  home.name
+  home.name,
+  proposal.name
 ])
