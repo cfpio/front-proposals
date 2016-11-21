@@ -4,16 +4,18 @@ MAINTAINER team@breizhcamp.org
 
 WORKDIR /work
 
+RUN npm install -g yarn@0.17.8
 ADD /package.json /work/
 ADD /bower.json /work/
 ADD /.bowerrc /work/
-ADD /npm-shrinkwrap.json /work/
+ADD /yarn.lock /work/
 
-RUN npm install --unsafe-perm
+RUN yarn install
 
 ADD / /work
 
-RUN npm run build
+RUN yarn test
+RUN yarn build
 
 RUN mkdir /www
 RUN mv /work/dist /www/front
