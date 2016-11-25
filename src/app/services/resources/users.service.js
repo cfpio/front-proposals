@@ -5,7 +5,7 @@ export const Users = (RestangularProvider) => {
   const meId = 'me'
 
   RestangularProvider.addRequestInterceptor((element, operation, what, url) => {
-    if (what === usersPath && operation === 'put' && url.endsWith(meId)) {
+    if (what === usersPath && operation === 'put' && _.endsWith(url, meId)) {
       delete element.id // let's remove the id which was added only as a workaround, and is not supported by the API
     }
     return element
