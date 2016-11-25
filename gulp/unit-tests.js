@@ -21,9 +21,6 @@ const runTests = (singleRun, done) => {
   })
 
   if (singleRun) {
-    pathSrcJs.forEach((path) => {
-      preprocessors[path] = ['coverage']
-    })
     reporters.push('coverage')
   }
 

@@ -11,13 +11,17 @@ const webpackWrapper = (watch, test, callback) => {
   const webpackOptions = {
     watch: watch,
     module: {
-      preLoaders: [{ test: /\.js$/, exclude: /node_modules/, loader: 'eslint-loader'}],
-      loaders: [{ test: /\.js$/, exclude: /node_modules/, loaders: ['ng-annotate', 'babel-loader?presets[]=es2015']}]
+      preLoaders: [{test: /\.js$/, exclude: /node_modules/, loader: 'eslint-loader'}],
+      loaders: [{
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loaders: ['ng-annotate', 'babel-loader?presets[]=es2015&plugins[]=istanbul']
+      }]
     },
     eslint: {
       emitWarning: true
     },
-    output: { filename: 'index.module.js' }
+    output: {filename: 'index.module.js'}
   }
 
   if (watch) {
@@ -41,7 +45,7 @@ const webpackWrapper = (watch, test, callback) => {
     }
   }
 
-  const sources = [ path.join(conf.paths.src, '/app/index.module.js') ]
+  const sources = [path.join(conf.paths.src, '/app/index.module.js')]
   if (test) {
     sources.push(path.join(conf.paths.src, '/app/**/*.spec.js'))
   }
