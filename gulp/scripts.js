@@ -8,6 +8,8 @@ const webpack = require('webpack-stream')
 const $ = require('gulp-load-plugins')()
 
 const webpackWrapper = (watch, test, callback) => {
+
+  const babelPluginsQueryParam = test ? '&plugins[]=istanbul' : ''
   const webpackOptions = {
     watch: watch,
     module: {
@@ -15,7 +17,7 @@ const webpackWrapper = (watch, test, callback) => {
       loaders: [{
         test: /\.js$/,
         exclude: /node_modules/,
-        loaders: ['ng-annotate', 'babel-loader?presets[]=es2015&plugins[]=istanbul']
+        loaders: ['ng-annotate', 'babel-loader?presets[]=es2015' + babelPluginsQueryParam]
       }]
     },
     eslint: {
@@ -23,6 +25,8 @@ const webpackWrapper = (watch, test, callback) => {
     },
     output: {filename: 'index.module.js'}
   }
+
+  console.log(webpackOptions.module.loaders[0].loaders[1])
 
   if (watch) {
     webpackOptions.devtool = 'inline-source-map'
