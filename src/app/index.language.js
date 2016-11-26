@@ -11,7 +11,7 @@ export const i18n = ($translateProvider, tmhDynamicLocaleProvider) => {
       'fr_*': 'fr'
     })
     .determinePreferredLanguage()
-    // .fallbackLanguage('fr')
+    .fallbackLanguage('fr')
     .translations('fr', fr)
     .translations('en', en)
 
