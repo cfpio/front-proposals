@@ -60,7 +60,15 @@ export default {
         }
       },
       COSPEAKERS: {
-        LABEL: 'Co-conférenciers'
+        LABEL: 'Co-présentateurs',
+        PLACEHOLDER: 'Saisir l\'adresse email du co-présentateur…',
+        ADD: {
+          TOOLTIP: 'Ajouter un co-présentateur'
+        },
+        REMOVE: {
+          TOOLTIP: 'Supprimer le co-présentateur'
+        },
+        HELP: 'Si vous êtes accompagnés lors de cette présentation (maximum 3 présentateurs), indiquez l\'adresse email des co-présentateurs.<br><b>Attention !</b> les adresses email saisies doivent correspondre à des comptes utilisateurs sur cfp.io'
       },
       BUTTON: {
         SAVE_DRAFT: 'Sauvegarder le brouillon',
@@ -71,6 +79,9 @@ export default {
   LANG: {
     en: 'English',
     fr: 'Français'
+  },
+  MULTI_INPUT: {
+    MAX_REACHED: 'Nombre maximum atteint'
   },
   'DIALOGS_ERROR': 'Erreur',
   'DIALOGS_ERROR_MSG': 'Une erreur inconnue s\'est produite.',

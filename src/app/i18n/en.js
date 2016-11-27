@@ -60,7 +60,15 @@ export default {
         }
       },
       COSPEAKERS: {
-        LABEL: 'Co-speakers'
+        LABEL: 'Co-speakers',
+        PLACEHOLDER: 'Enter email address of the co-speaker…',
+        ADD: {
+          TOOLTIP: 'Add a co-speaker'
+        },
+        REMOVE: {
+          TOOLTIP: 'Remove the co-speaker'
+        },
+        HELP: 'If you are accompanied during this presentation (maximum 3 speakers), indicate the email address of the co-speakers.<br><b>Caution!</b> The entered email addresses must correspond to user accounts on cfp.io'
       },
       BUTTON: {
         SAVE_DRAFT: 'Save draft',
@@ -71,6 +79,9 @@ export default {
   LANG: {
     en: 'English',
     fr: 'Français'
+  },
+  MULTI_INPUT: {
+    MAX_REACHED: 'Maximum count reached'
   },
   'DIALOGS_ERROR': 'Error',
   'DIALOGS_ERROR_MSG': 'An unknown error has occurred.',

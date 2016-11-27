@@ -111,10 +111,21 @@
       </div>
 
       <div class="form-group">
-        <label class="col-md-2 control-label" translate>PROPOSAL.FORM.COSPEAKERS.LABEL</label>
-        <div class="col-md-6">
+        <div
+          ng-class="{'has-success': proposalForm.coSpeakers.$dirty && proposalForm.coSpeakers.$valid, 'has-error': proposalForm.coSpeakers.$dirty && proposalForm.coSpeakers.$invalid}">
+          <label class="col-md-2 control-label" translate>PROPOSAL.FORM.COSPEAKERS.LABEL</label>
+          <div class="col-md-6">
+            <multi-input ng-model="$ctrl.proposal.coSpeakers" name="coSpeakers" type="email" max="2"
+                         placeholder="{{'PROPOSAL.FORM.COSPEAKERS.PLACEHOLDER' | translate}}"
+                         add-button-title="{{'PROPOSAL.FORM.COSPEAKERS.ADD.TOOLTIP' | translate}}"
+                         remove-button-title="{{'PROPOSAL.FORM.COSPEAKERS.REMOVE.TOOLTIP' | translate}}"></multi-input>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <span class="help-block small" translate>PROPOSAL.FORM.COSPEAKERS.HELP</span>
         </div>
       </div>
+      <br>
 
       <div class="row">
         <div class="col-md-12 col-lg-8">

@@ -1,0 +1,26 @@
+<div>
+  <ul class="list-unstyled" ng-form="{{formName}}" ng-show="values.length > 0">
+    <li ng-repeat="value in values track by $index">
+      <div class="form-group" ng-class="$ctrl.validationClass($index)">
+        <div class="col-xs-12">
+          <div class="input-group">
+            <input type="{{inputType}}" name="{{formName + '_' + $index}}" class="form-control" required
+                   ng-model="values[$index]" placeholder="{{inputPlaceholder}}">
+            <div class="input-group-btn">
+              <button type="button" title="{{removeButtonTitle}}" class="btn btn-default"
+                      ng-click="$ctrl.removeValue($index)">
+                <i class="fa fa-minus"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <button type="button" title="{{addButtonTitle}}" ng-disabled="maxCount !== -1 && values.length >= maxCount"
+          class="btn btn-sm btn-default" ng-click="$ctrl.addValue()">
+    <i class="fa fa-plus"></i>
+  </button>
+  <span class="text-muted" ng-show="maxCount !== -1 && values.length >= maxCount"
+        translate>MULTI_INPUT.MAX_REACHED</span>
+</div>

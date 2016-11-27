@@ -5,7 +5,7 @@ export const i18n = ($translateProvider, tmhDynamicLocaleProvider) => {
   'ngInject'
 
   $translateProvider
-    .useSanitizeValueStrategy('escape')
+    .useSanitizeValueStrategy('sanitizeParameters')
     .registerAvailableLanguageKeys(['en', 'fr'], {
       'en_*': 'en',
       'fr_*': 'fr'
