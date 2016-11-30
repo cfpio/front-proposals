@@ -3,7 +3,8 @@ import {markdownEditor} from './mardown-editor'
 
 const dependencies = [
   'ui.bootstrap.tabs',
-  'ui.bootstrap.tpls'
+  'ui.bootstrap.tpls',
+  'hc.marked'
 ]
 
 export const directives = angular.module('io.cfp.front.directives', dependencies)

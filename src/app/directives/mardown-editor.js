@@ -9,8 +9,12 @@ export const markdownEditor = () => {
       rows: '@'
     },
     templateUrl: 'app/directives/markdown-editor.html',
-    controller: function(marked) {
+    controller: function($scope, $sanitize, marked) {
       'ngInject'
+
+      this.sanitize = (source) => {
+        $scope.source = $sanitize(source).replace(/&#10;/g, '\n') // workaround to keep line returns
+      }
 
       this.generatePreview = (source) => {
         this.preview = marked(source)
