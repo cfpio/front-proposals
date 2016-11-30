@@ -1,0 +1,9 @@
+<uib-tabset type="tabs">
+  <uib-tab index="0" heading="{{'MARKOWN_EDITOR.TABS.SOURCE' | translate}}">
+      <textarea class="form-control" ng-model="source" name="{{name}}" required
+                placeholder="{{'PROPOSAL.FORM.DESCRIPTION.PLACEHOLDER'| translate}}" rows="{{rows}}"></textarea>
+  </uib-tab>
+  <uib-tab index="1" heading="{{'MARKOWN_EDITOR.TABS.PREVIEW' | translate}}" select="$ctrl.generatePreview(source)">
+    <div ng-bind-html="$ctrl.preview"></div>
+  </uib-tab>
+</uib-tabset>

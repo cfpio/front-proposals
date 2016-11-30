@@ -10,7 +10,7 @@
 <br>
 <div class="row">
   <div class="col-md-12">
-    <form class="form-horizontal" novalidate name="proposalForm">
+    <form class="proposal-form form-horizontal" novalidate name="proposalForm">
 
       <div class="form-group">
         <div
@@ -31,8 +31,10 @@
           ng-class="{'has-success': proposalForm.description.$dirty && proposalForm.description.$valid, 'has-error': proposalForm.description.$dirty && proposalForm.description.$invalid}">
           <label class="col-md-2 control-label required" translate>PROPOSAL.FORM.DESCRIPTION.LABEL</label>
           <div class="col-md-6">
-          <textarea class="form-control" ng-model="$ctrl.proposal.description" name="description" required
-                    placeholder="{{'PROPOSAL.FORM.DESCRIPTION.PLACEHOLDER'| translate}}" rows="8"></textarea>
+            <!--<textarea class="form-control" ng-model="$ctrl.proposal.description" name="description" required
+                      placeholder="{{'PROPOSAL.FORM.DESCRIPTION.PLACEHOLDER'| translate}}" rows="8"></textarea>-->
+            <div class="proposal-description" ng-model="$ctrl.proposal.description" name="description"
+                 markdown-editor rows="10"></div>
           </div>
         </div>
         <div class="col-md-4">
