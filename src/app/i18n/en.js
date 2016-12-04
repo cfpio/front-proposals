@@ -11,6 +11,9 @@ export default {
       SAVE: 'SAVE'
     }
   },
+  FOOTER: {
+    BUGREPORT: 'Report a bug'
+  },
   PROFILE: {
     EDIT: {
       TITLE: 'My profile'

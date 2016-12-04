@@ -11,6 +11,9 @@ export default {
       SAVE: 'Enregistrer'
     }
   },
+  FOOTER: {
+    BUGREPORT: 'Signaler une anomalie'
+  },
   PROFILE: {
     EDIT: {
       TITLE: 'Mon profil'
