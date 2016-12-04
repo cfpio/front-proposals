@@ -1,0 +1,138 @@
+<div class="row">
+  <div class="col-md-12">
+    <h1 translate>PROFILE.EDIT.TITLE</h1>
+    <span class="pull-right small" translate>COMMON.FORM.HELP.REQUIRED</span>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-12">
+    <form class="form-horizontal" novalidate name="profileForm">
+
+      <div class="row">
+
+        <div class="col-sm-4 col-sm-push-8">
+          <img ng-src="https://avatars.io/gravatar/{{$ctrl.user.email}}/Large"
+               class="center-block img-thumbnail" width="200" height="200">
+        </div>
+        <div class="col-sm-8 col-sm-pull-4">
+          <div class="form-group"
+               ng-class="{'has-success': profileForm.lastname.$dirty && profileForm.lastname.$valid, 'has-error': profileForm.lastname.$dirty && profileForm.lastname.$invalid}">
+            <label class="col-md-2 control-label required" translate>PROFILE.FORM.LASTNAME.LABEL</label>
+            <div class="col-md-10">
+              <input class="form-control" ng-model="$ctrl.user.lastname" name="lastname" required autofocus
+                     placeholder="{{'PROFILE.FORM.LASTNAME.PLACEHOLDER' | translate}}">
+            </div>
+          </div>
+          <div class="form-group"
+               ng-class="{'has-success': profileForm.firstname.$dirty && profileForm.firstname.$valid, 'has-error': profileForm.firstname.$dirty && profileForm.firstname.$invalid}">
+            <label class="col-md-2 control-label required" translate>PROFILE.FORM.FIRSTNAME.LABEL</label>
+            <div class="col-md-10">
+              <input class="form-control" ng-model="$ctrl.user.firstname" name="firstname" required
+                     placeholder="{{'PROFILE.FORM.FIRSTNAME.PLACEHOLDER' | translate}}">
+            </div>
+          </div>
+          <div class="form-group"
+               ng-class="{'has-success': profileForm.language.$dirty && profileForm.language.$valid, 'has-error': profileForm.language.$dirty && profileForm.language.$invalid}">
+            <label class="col-md-2 control-label required" translate>PROFILE.FORM.LANGUAGE.LABEL</label>
+            <div class="col-md-10">
+              <select class="form-control" name="language" ng-change="$ctrl.updateLanguage($ctrl.user.language)"
+                      ng-options="lang as ('LANG.' + lang | translate) for lang in $ctrl.availableLanguages"
+                      ng-model="$ctrl.user.language"></select>
+            </div>
+          </div>
+          <div class="form-group"
+               ng-class="{'has-success': profileForm.phone.$dirty && profileForm.phone.$valid, 'has-error': profileForm.phone.$dirty && profileForm.phone.$invalid}">
+            <label class="col-md-2 control-label" translate>PROFILE.FORM.PHONE.LABEL</label>
+            <div class="col-md-10">
+              <input class="form-control" ng-model="$ctrl.user.phone" name="phone"
+                     placeholder="{{'PROFILE.FORM.PHONE.PLACEHOLDER' | translate}}">
+            </div>
+          </div>
+          <div class="form-group"
+               ng-class="{'has-success': profileForm.organization.$dirty && profileForm.organization.$valid, 'has-error': profileForm.organization.$dirty && profileForm.organization.$invalid}">
+            <label class="col-md-2 control-label" translate>PROFILE.FORM.ORGANIZATION.LABEL</label>
+            <div class="col-md-10">
+              <input class="form-control" ng-model="$ctrl.user.company" name="organization"
+                     placeholder="{{'PROFILE.FORM.ORGANIZATION.PLACEHOLDER' | translate}}">
+            </div>
+          </div>
+          <div class="form-group"
+               ng-class="{'has-success': profileForm.bio.$dirty && profileForm.bio.$valid, 'has-error': profileForm.bio.$dirty && profileForm.bio.$invalid}">
+            <label class="col-md-2 control-label required" translate>PROFILE.FORM.BIO.LABEL</label>
+            <div class="col-md-10">
+              <textarea class="form-control constrained-width" ng-model="$ctrl.user.bio" name="bio" rows="8" required
+                        placeholder="{{'PROFILE.FORM.BIO.PLACEHOLDER' | translate}}"></textarea>
+            </div>
+          </div>
+          <div class="form-group"
+               ng-class="{'has-success': profileForm.twitter.$dirty && profileForm.twitter.$valid, 'has-error': profileForm.twitter.$dirty && profileForm.twitter.$invalid}">
+            <label class="col-md-2 control-label" translate>PROFILE.FORM.TWITTER.LABEL</label>
+            <div class="col-md-10">
+              <input class="form-control" ng-model="$ctrl.user.twitter" name="twitter"
+                     placeholder="{{'PROFILE.FORM.TWITTER.PLACEHOLDER' | translate}}">
+            </div>
+          </div>
+          <div class="form-group"
+               ng-class="{'has-success': profileForm.github.$dirty && profileForm.github.$valid, 'has-error': profileForm.github.$dirty && profileForm.github.$invalid}">
+            <label class="col-md-2 control-label" translate>PROFILE.FORM.GITHUB.LABEL</label>
+            <div class="col-md-10">
+              <input class="form-control" ng-model="$ctrl.user.github" name="github"
+                     placeholder="{{'PROFILE.FORM.GITHUB.PLACEHOLDER' | translate}}">
+            </div>
+          </div>
+          <div class="form-group"
+               ng-class="{'has-success': profileForm.googleplus.$dirty && profileForm.googleplus.$valid, 'has-error': profileForm.googleplus.$dirty && profileForm.googleplus.$invalid}">
+            <label class="col-md-2 control-label" translate>PROFILE.FORM.GOOGLEPLUS.LABEL</label>
+            <div class="col-md-10">
+              <input class="form-control" ng-model="$ctrl.user.googleplus" name="googleplus"
+                     placeholder="{{'PROFILE.FORM.GOOGLEPLUS.PLACEHOLDER' | translate}}">
+            </div>
+          </div>
+          <div class="form-group"
+               ng-class="{'has-success': profileForm.social.$dirty && profileForm.social.$valid, 'has-error': profileForm.social.$dirty && profileForm.social.$invalid}">
+            <label class="col-md-2 control-label" translate>PROFILE.FORM.SOCIAL.LABEL</label>
+            <div class="col-md-10">
+              <input class="form-control" ng-model="$ctrl.user.social" name="social"
+                     placeholder="{{'PROFILE.FORM.SOCIAL.PLACEHOLDER' | translate}}">
+            </div>
+          </div>
+          <div class="form-group">
+            <div
+              ng-class="{'has-success': profileForm.tshirtModel.$dirty && profileForm.tshirtModel.$valid, 'has-error': profileForm.tshirtModel.$dirty && profileForm.tshirtModel.$invalid}">
+              <label class="col-md-2 control-label" translate>PROFILE.FORM.TSHIRTMODEL.LABEL</label>
+              <div class="col-md-4">
+                <select class="form-control" name="tshirtModel" ng-model="$ctrl.user.gender"
+                        ng-options="model as ('PROFILE.FORM.TSHIRTMODEL.MODELS.' + model | translate) for model in $ctrl.tshirtModels"></select>
+              </div>
+            </div>
+            <div
+              ng-class="{'has-success': profileForm.tshirtSize.$dirty && profileForm.tshirtSize.$valid, 'has-error': profileForm.tshirtSize.$dirty && profileForm.tshirtSize.$invalid}">
+              <label class="col-md-2 control-label" translate>PROFILE.FORM.TSHIRTSIZE.LABEL</label>
+              <div class="col-md-4">
+                <select class="form-control" name="tshirtSize" ng-model="$ctrl.user.tshirtSize"
+                        ng-options="size as ('PROFILE.FORM.TSHIRTSIZE.SIZES.' + size | translate) for size in $ctrl.tshirtSizes"></select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="row">
+            <div class="col-md-offset-2 col-xs-12">
+              <a ui-sref="welcome" class="btn btn-default" translate>COMMON.BUTTON.CANCEL</a>
+              <button type="button" class="btn btn-primary" ng-disabled="profileForm.$pristine || profileForm.$invalid"
+                      ng-click="$ctrl.save($ctrl.proposal)" translate>
+                COMMON.BUTTON.SAVE
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

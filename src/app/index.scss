@@ -124,6 +124,12 @@ label.required:after {
   content: ' *'
 }
 
+textarea {
+  &.constrained-width {
+    resize: vertical;
+  }
+}
+
 /* Do not remove the comments below. It's the markers used by gulp-inject to inject
    all your sass files automatically */
 // injector

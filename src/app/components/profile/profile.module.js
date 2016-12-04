@@ -1,13 +1,11 @@
-import {FormProfile} from './form-profile'
-import {ViewProfile} from './view-profile'
+import {EditProfile} from './edit-profile'
 
 export const profile = angular
   .module('io.cfp.front.components.profile', [
     'ui.router'
   ])
 
-  .component('cfpFormProfile', FormProfile)
-  .component('cfpViewProfile', ViewProfile)
+  .component('editProfile', EditProfile)
 
   .config(($stateProvider) => {
 
@@ -16,6 +14,6 @@ export const profile = angular
       .state('profile', {
         parent: 'home.secured',
         url: '/profile',
-        component: 'cfpFormProfile'
+        component: 'editProfile'
       })
   })
