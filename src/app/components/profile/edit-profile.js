@@ -4,7 +4,7 @@ const EditProfileController = function($timeout, $scope, $state, $translate) {
   this.availableLanguages = $translate.getAvailableLanguageKeys()
 
   this.save = (user) => {
-    this.user.save().then(() => {
+    user.save().then(() => {
       $state.go('welcome')
     })
   }
