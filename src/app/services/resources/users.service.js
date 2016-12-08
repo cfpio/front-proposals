@@ -12,10 +12,12 @@ export const Users = (RestangularProvider) => {
   })
 
   return {
-    '$get': ($rootScope, Restangular) => {
+    '$get': ($rootScope, Restangular, sanitize) => {
       'ngInject'
 
       const service = Restangular.service(usersPath)
+
+      Restangular.addElementTransformer(usersPath, false, (model) => sanitize(model, ['bio']))
 
       service.me = () => service.one(meId).get().then((user) => {
         $rootScope.$emit('users:me:retrieved', user)

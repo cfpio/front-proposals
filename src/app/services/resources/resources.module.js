@@ -1,11 +1,11 @@
 import {Users} from './users.service'
-import {Drafts} from './drafts.service'
-import {Proposals} from './proposals.service'
+import {Drafts, Proposals} from './proposals.service'
 import {Tracks} from './tracks.service'
 import {Formats} from './formats.service'
 
 const dependencies = [
-  'restangular'
+  'restangular',
+  'io.cfp.front.services.util'
 ]
 
 export const resources = angular.module('io.cfp.front.services.resource', [...dependencies])

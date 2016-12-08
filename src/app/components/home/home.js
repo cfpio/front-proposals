@@ -1,7 +1,5 @@
-class HomeController {
-  constructor() {
-    'ngInject'
-  }
+const HomeController = function() {
+  'ngInject'
 }
 
 export const Home = {

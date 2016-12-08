@@ -1,15 +1,20 @@
 describe('Users', () => {
 
-  let service, Restangular
+  let service, Restangular, sanitize
   let $httpBackend, $rootScope
 
-  beforeEach(angular.mock.module('io.cfp.front.services.resource'))
+  beforeEach(angular.mock.module('io.cfp.front.services.resource', ($provide, sanitizeProvider) => {
+    const sanitize = sanitizeProvider.$get()
+    const spiedSanitize = jasmine.createSpy().and.callFake(sanitize)
+    $provide.value('sanitize', spiedSanitize)
+  }))
 
-  beforeEach(inject((Users, _Restangular_, _$httpBackend_, _$rootScope_) => {
+  beforeEach(inject((Users, _Restangular_, _$httpBackend_, _$rootScope_, _sanitize_) => {
     service = Users
     Restangular = _Restangular_
     $httpBackend = _$httpBackend_
     $rootScope = _$rootScope_
+    sanitize = _sanitize_
   }))
 
   afterEach(function() {
@@ -23,11 +28,12 @@ describe('Users', () => {
       spyOn($rootScope, '$emit')
     })
 
-    it('should retrieve connected user info, add a fake id and and emit an event', () => {
+    it('should retrieve connected user info, sanitize "bio", add a fake id and and emit an event', () => {
 
       $httpBackend.expectGET('/users/me').respond({})
 
       service.me().then((data) => {
+        expect(sanitize).toHaveBeenCalledWith(data, ['bio'])
         expect(data.id).toBe('me')
         expect($rootScope.$emit).toHaveBeenCalledWith('users:me:retrieved', data)
       })
