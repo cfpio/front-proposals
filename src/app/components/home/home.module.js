@@ -21,7 +21,7 @@ export const home = angular
         abstract: true,
         component: 'home',
         resolve: {
-          application: (Restangular) => Restangular.one('application').get(),
+          event: (Event) => Event.get(),
           tracks: (Tracks) => Tracks.getList(),
           formats: (Formats) => Formats.getList()
         }

@@ -8,7 +8,7 @@ export const Welcome = {
   controller: WelcomeController,
   templateUrl: 'app/components/home/welcome/welcome.html',
   bindings: {
-    config: '=application',
+    event: '=',
     tracks: '=',
     drafts: '=',
     proposals: '='
