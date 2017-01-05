@@ -26,8 +26,6 @@ const webpackWrapper = (watch, test, callback) => {
     output: {filename: 'index.module.js'}
   }
 
-  console.log(webpackOptions.module.loaders[0].loaders[1])
-
   if (watch) {
     webpackOptions.devtool = 'inline-source-map'
   }

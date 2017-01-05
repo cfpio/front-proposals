@@ -10,3 +10,18 @@
   /* Set the fixed height of the footer here */
   height: 60px;
 }
+
+$dl-large-horizontal-offset: 350px;
+
+.dl-horizontal.large-dt {
+
+  @media (min-width: $dl-horizontal-breakpoint) {
+    dt {
+      width: ($dl-large-horizontal-offset - 20);
+      white-space: normal;
+    }
+    dd {
+      margin-left: $dl-large-horizontal-offset;
+    }
+  }
+}

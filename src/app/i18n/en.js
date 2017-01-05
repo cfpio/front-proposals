@@ -14,6 +14,15 @@ export default {
   FOOTER: {
     BUGREPORT: 'Report a bug'
   },
+  HOME: {
+    TITLE: 'Call for proposals',
+    DATES: 'Open until {{closingDate}} — Program Announced {{programDate}}',
+    NEW_PROPOSAL: 'Become a speaker!',
+    TRACKS: {
+      TITLE: 'Themes',
+      HELP: 'All the tracks available during the event'
+    }
+  },
   PROFILE: {
     EDIT: {
       TITLE: 'My profile'

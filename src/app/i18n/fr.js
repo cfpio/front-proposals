@@ -14,6 +14,15 @@ export default {
   FOOTER: {
     BUGREPORT: 'Signaler une anomalie'
   },
+  HOME: {
+    TITLE: 'Appel à propositions',
+    DATES: 'Ouvert jusqu\'au {{closingDate}} — Annonce du programme le {{programDate}}',
+    NEW_PROPOSAL: 'Devient conférencier !',
+    TRACKS: {
+      TITLE: 'Thèmes',
+      HELP: 'Les différents thèmes abordés durant l\'événement'
+    }
+  },
   PROFILE: {
     EDIT: {
       TITLE: 'Mon profil'

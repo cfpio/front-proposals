@@ -11,7 +11,7 @@ export const config = ($compileProvider, $logProvider, $translateProvider, $http
   //used to forward auth cookie on CORS
   $httpProvider.defaults.withCredentials = true
 
-  AuthenticationInterceptorProvider.excludedRoutes(['/home'])
+  AuthenticationInterceptorProvider.excludedStates(['welcome'])
   AuthenticationServiceProvider.authUrl(Infra.authServer)
 
   RestangularProvider.setBaseUrl(Infra.apiServer + '/api')

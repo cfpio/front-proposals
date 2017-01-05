@@ -1,14 +1,16 @@
 describe('AuthenticationInterceptor', () => {
 
-  let service, serviceProvider, $location, $q, AuthenticationService
+  let service, serviceProvider, $state, $q, AuthenticationService
 
   beforeEach(angular.mock.module('io.cfp.front.services.security', ($provide, AuthenticationInterceptorProvider) => {
 
-    $location = { // let's make a fake $location service
-      path: ()=> ''
+    $state = { // let's make a fake $state service
+      transition: {
+        $to: () => undefined
+      }
     }
 
-    $provide.value('$location', $location)
+    $provide.value('$state', $state)
 
     serviceProvider = AuthenticationInterceptorProvider
   }))
@@ -21,28 +23,28 @@ describe('AuthenticationInterceptor', () => {
 
   describe('provider', () => {
 
-    it('can be configured with excluded routes', () => {
+    it('can be configured with excluded states', () => {
 
-      let excludedRoutes = ['/some/route', '/some/other/route']
+      let excludedStates = ['some.state', 'some.other.state']
 
-      let result = serviceProvider.excludedRoutes(excludedRoutes)
+      let result = serviceProvider.excludedStates(excludedStates)
 
       expect(result).toBe(serviceProvider) // usefull for method chaining
-      expect(serviceProvider.excludedRoutes()).toBe(excludedRoutes)
+      expect(serviceProvider.excludedStates()).toBe(excludedStates)
     })
   })
 
   describe('responseError', () => {
 
-    beforeEach(()=> {
+    beforeEach(() => {
       spyOn(AuthenticationService, 'login')
       spyOn($q, 'reject').and.callThrough()
     })
 
-    describe('with anything but a 401 status code', ()=> {
+    describe('with anything but a 401 status code', () => {
 
       beforeEach(() => {
-        spyOn($location, 'path').and.callThrough()
+        spyOn($state.transition, '$to').and.callThrough()
       })
 
       it('should reject response', () => {
@@ -53,43 +55,43 @@ describe('AuthenticationInterceptor', () => {
 
         expect($q.reject).toHaveBeenCalledWith(response)
         expect(AuthenticationService.login).not.toHaveBeenCalled()
-        expect($location.path).not.toHaveBeenCalled()
+        expect($state.transition.$to).not.toHaveBeenCalled()
         expect(result.$$state.value).toBe(response)
       })
     })
 
     describe('with 401 status code', () => {
 
-      const excludedRoute = '/excluded-route'
+      const excludedState = 'excluded-state'
       const response = {
         status: 401
       }
 
       beforeEach(() => {
-        spyOn($location, 'path').and.returnValue(excludedRoute)
+        spyOn($state.transition, '$to').and.returnValue({name: 'excluded-state'})
       })
 
       it('should call AuthenticationService.login()', () => {
 
         const result = service.responseError(response)
 
-        expect($location.path).toHaveBeenCalled()
+        expect($state.transition.$to).toHaveBeenCalled()
         expect(AuthenticationService.login).toHaveBeenCalled()
         expect($q.reject).toHaveBeenCalledWith(response)
         expect(result.$$state.value).toBe(response)
       })
 
-      describe('when current location path is excluded', ()=> {
+      describe('when target state is excluded', () => {
 
         beforeEach(() => {
-          serviceProvider.excludedRoutes([excludedRoute])
+          serviceProvider.excludedStates([excludedState])
         })
 
         it('should reject response', () => {
 
           const result = service.responseError(response)
 
-          expect($location.path).toHaveBeenCalled()
+          expect($state.transition.$to).toHaveBeenCalled()
           expect(AuthenticationService.login).not.toHaveBeenCalled()
           expect($q.reject).toHaveBeenCalledWith(response)
           expect(result.$$state.value).toBe(response)

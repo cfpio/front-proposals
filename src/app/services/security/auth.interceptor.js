@@ -1,17 +1,17 @@
 export const AuthenticationInterceptor = () => {
 
-  let excludedRoutes = []
+  let excludedStates = []
 
   const provider = {
-    excludedRoutes: function(routes) {
-      return arguments.length ? (excludedRoutes = routes, provider) : excludedRoutes // ease method chaining, if need be
+    excludedStates: function(states) {
+      return arguments.length ? (excludedStates = states, provider): excludedStates // ease method chaining, if need be
     },
-    '$get': ($q, AuthenticationService, $location) => {
+    '$get': ($q, AuthenticationService, $state) => {
       'ngInject'
 
       return {
         responseError(rejection) {
-          if (rejection.status === 401 && excludedRoutes.indexOf($location.path()) === -1) {
+          if (rejection.status === 401 && excludedStates.indexOf($state.transition.$to().name) === -1) {
             AuthenticationService.login()
           }
           return $q.reject(rejection)

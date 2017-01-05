@@ -3,7 +3,7 @@ export const Event = (RestangularProvider) => {
 
   const applicationPath = 'application'
 
-  const parseDate = (stringDate) => moment(stringDate, 'DD/MM/YYYY', true)
+  const parseDate = (stringDate) => moment(stringDate, 'DD/MM/YYYY', true).toDate()
 
   RestangularProvider.addResponseInterceptor((data, operation, what) => { // temporary workaround to…
     if (what === applicationPath && operation === 'get') { //… https://github.com/cfpio/callForPapers/issues/103
