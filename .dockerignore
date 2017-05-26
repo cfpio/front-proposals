@@ -1,6 +1,8 @@
 node_modules
-vendor
 dist
 .idea
 .tmp
+coverage
 .nvmrc
+.git
+*.iml

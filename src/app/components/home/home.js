@@ -4,5 +4,5 @@ const HomeController = function() {
 
 export const Home = {
   controller: HomeController,
-  templateUrl: 'app/components/home/home.html'
+  template: require('./home.html')
 }

@@ -20,7 +20,7 @@ const EditProfileController = function($timeout, $scope, $state, $translate) {
 
 export const EditProfile = {
   controller: EditProfileController,
-  templateUrl: 'app/components/profile/edit-profile.html',
+  template: require('./edit-profile.html'),
   bindings: {
     user: '='
   }

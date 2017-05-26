@@ -1,15 +1,8 @@
-/**
- *  If you want to override some bootstrap variables, you have to change values here.
- *  The list of variables are listed here bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss
- */
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+$fa-font-path: "~font-awesome/fonts";
 
-$icon-font-path: "../vendor/bootstrap-sass/assets/fonts/bootstrap/";
-$fa-font-path: "../vendor/font-awesome/fonts";
-
-/* Do not remove the comments below. It's the markers used by wiredep to inject
-   sass dependencies when defined in the bower.json of your dependencies */
-// bower:scss
-// endbower
+@import "~bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "~font-awesome/scss/font-awesome.scss";
 
 html {
   position: relative;
@@ -30,10 +23,3 @@ textarea {
     resize: vertical;
   }
 }
-
-
-
-/* Do not remove the comments below. It's the markers used by gulp-inject to inject
-   all your sass files automatically */
-// injector
-// endinjector

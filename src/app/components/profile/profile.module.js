@@ -1,3 +1,5 @@
+import angular from 'angular'
+
 import {EditProfile} from './edit-profile'
 
 export const profile = angular
@@ -8,6 +10,7 @@ export const profile = angular
   .component('editProfile', EditProfile)
 
   .config(($stateProvider) => {
+    'ngInject'
 
     // Declare routes
     $stateProvider

@@ -1,10 +1,12 @@
+import angular from 'angular'
+
 describe('sanitize()', () => {
 
   let sanitize
 
   beforeEach(angular.mock.module('io.cfp.front.services.util'))
 
-  beforeEach(inject((_sanitize_) => {
+  beforeEach(angular.mock.inject((_sanitize_) => {
     sanitize = _sanitize_
   }))
 
@@ -18,7 +20,7 @@ describe('sanitize()', () => {
   it('should sanitize only existing String properties', () => {
 
     const object = {
-      foo: `<img src="fake" onerror="alert(\'Pawned!\')">
+      foo: `<img src="fake" onerror="alert('Pawned!')">
 <p></p>`,
       bar: 666
     }

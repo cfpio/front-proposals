@@ -1,3 +1,5 @@
+import angular from 'angular'
+
 import {AuthenticationInterceptor} from './auth.interceptor'
 import {AuthenticationService} from './auth.service'
 

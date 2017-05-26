@@ -1,16 +1,6 @@
-# Logs
-npm-debug.log*
-# Coverage directory used by tools like istanbul
-coverage/
-# IDE
-.idea
-*.iml
-# Compiled binary addons (http://nodejs.org/api/addons.html)
-.sass-cache/
 .tmp/
+coverage/
 dist/
-# Dependency directory
 node_modules/
-vendor/
-# Mac OS X files
-**/.DS_Store
+.idea/
+*.iml

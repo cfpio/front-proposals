@@ -1,8 +1,11 @@
+import angular from 'angular'
+import 'angular-mocks'
+
 describe('AuthenticationService', () => {
 
   let service, serviceProvider, $window, $state
 
-  beforeEach(angular.mock.module('io.cfp.front.services.security', ($provide, AuthenticationServiceProvider)=> {
+  beforeEach(angular.mock.module('io.cfp.front.services.security', ($provide, AuthenticationServiceProvider) => {
 
     $window = {} // let's make a fake $window service
     $state = { // let's make a fake $state service
@@ -16,7 +19,7 @@ describe('AuthenticationService', () => {
     serviceProvider = AuthenticationServiceProvider
   }))
 
-  beforeEach(inject(AuthenticationService => {
+  beforeEach(angular.mock.inject(AuthenticationService => {
     service = AuthenticationService
   }))
 
@@ -24,9 +27,9 @@ describe('AuthenticationService', () => {
 
     it('must be configured', () => {
 
-      let url = 'http://fake-url'
+      const url = 'http://fake-url'
 
-      let result = serviceProvider.authUrl(url)
+      const result = serviceProvider.authUrl(url)
 
       expect(result).toBe(serviceProvider) // usefull for method chaining
       expect(serviceProvider.authUrl()).toEqual(url)

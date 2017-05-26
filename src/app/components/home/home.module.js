@@ -1,3 +1,5 @@
+import angular from 'angular'
+
 import {Home} from './home'
 import {TopMenu} from './top-menu/top-menu'
 import {Welcome} from './welcome/welcome'

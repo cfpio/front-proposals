@@ -1,10 +1,8 @@
-FROM node:6  as build
+FROM node:7  as build
 
 WORKDIR /work
 
 ADD /package.json /work/
-ADD /bower.json /work/
-ADD /.bowerrc /work/
 ADD /yarn.lock /work/
 
 RUN yarn install

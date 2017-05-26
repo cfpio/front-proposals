@@ -1,4 +1,9 @@
+import angular from 'angular'
+import 'angular-mocks'
+
 describe('AuthenticationInterceptor', () => {
+
+  /* eslint angular/no-private-call: 0 */
 
   let service, serviceProvider, $state, $q, AuthenticationService
 
@@ -15,7 +20,7 @@ describe('AuthenticationInterceptor', () => {
     serviceProvider = AuthenticationInterceptorProvider
   }))
 
-  beforeEach(inject((_$q_, AuthenticationInterceptor, _AuthenticationService_) => {
+  beforeEach(angular.mock.inject((_$q_, AuthenticationInterceptor, _AuthenticationService_) => {
     service = AuthenticationInterceptor
     $q = _$q_
     AuthenticationService = _AuthenticationService_
@@ -25,9 +30,9 @@ describe('AuthenticationInterceptor', () => {
 
     it('can be configured with excluded states', () => {
 
-      let excludedStates = ['some.state', 'some.other.state']
+      const excludedStates = ['some.state', 'some.other.state']
 
-      let result = serviceProvider.excludedStates(excludedStates)
+      const result = serviceProvider.excludedStates(excludedStates)
 
       expect(result).toBe(serviceProvider) // usefull for method chaining
       expect(serviceProvider.excludedStates()).toBe(excludedStates)

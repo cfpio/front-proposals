@@ -1,6 +1,9 @@
+import angular from 'angular'
+import 'angular-mocks'
+
 describe('Users', () => {
 
-  let service, Restangular, sanitize
+  let service, sanitize
   let $httpBackend, $rootScope
 
   beforeEach(angular.mock.module('io.cfp.front.services.resource', ($provide, sanitizeProvider) => {
@@ -9,15 +12,14 @@ describe('Users', () => {
     $provide.value('sanitize', spiedSanitize)
   }))
 
-  beforeEach(inject((Users, _Restangular_, _$httpBackend_, _$rootScope_, _sanitize_) => {
+  beforeEach(angular.mock.inject((Users, _Restangular_, _$httpBackend_, _$rootScope_, _sanitize_) => {
     service = Users
-    Restangular = _Restangular_
     $httpBackend = _$httpBackend_
     $rootScope = _$rootScope_
     sanitize = _sanitize_
   }))
 
-  afterEach(function() {
+  afterEach(() => {
     $httpBackend.verifyNoOutstandingExpectation()
     $httpBackend.verifyNoOutstandingRequest()
   })
@@ -46,7 +48,7 @@ describe('Users', () => {
 
     it('should remove fake id added on retrieval', () => {
 
-      let user = {}
+      const user = {}
       $httpBackend.expectGET('/users/me').respond(user)
       $httpBackend.expectPUT('/users/me', (body) => body.id === undefined).respond()
 
