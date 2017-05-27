@@ -3,10 +3,11 @@ export const AuthenticationService = () => {
   let authUrl
 
   const provider = {
-    authUrl: function(url) {
-      return arguments.length ? (authUrl = url, provider): authUrl // ease method chaining, if need be
+    authUrl(url) {
+      /* eslint no-return-assign: 0 */
+      return arguments.length ? (authUrl = url, provider) : authUrl // ease method chaining, if need be
     },
-    '$get': ($window, $state) => {
+    $get: ($window, $state) => {
       'ngInject'
 
       function getLoginUrl() {

@@ -13,8 +13,8 @@ export const multiInput = () => {
       addButtonTitle: '@',
       removeButtonTitle: '@'
     },
-    templateUrl: 'app/directives/multi-input/multi-input.html',
-    controller: function($scope) {
+    template: require('./multi-input.html'),
+    controller($scope) {
       'ngInject'
 
       $scope.maxCount = $scope.maxCount ? Number($scope.maxCount) : -1

@@ -1,3 +1,12 @@
+import angular from 'angular'
+import moment from 'moment'
+import ngSanitize from 'angular-sanitize'
+import restangular from 'restangular'
+import uiRouter from 'angular-ui-router'
+import ngTranslate from 'angular-translate'
+import hcMarked from 'angular-marked'
+import tmhDynamicLocale from 'angular-dynamic-locale'
+
 import {config} from './index.config'
 import {router} from './index.router'
 import {i18n} from './index.language'
@@ -7,15 +16,15 @@ import {components} from './components/components.module'
 import {services} from './services/services.module'
 
 const dependencies = [
-  'ngSanitize',
-  'restangular',
-  'ui.router',
-  'pascalprecht.translate',
-  'hc.marked',
-  'tmh.dynamicLocale'
+  ngSanitize,
+  restangular,
+  uiRouter,
+  ngTranslate,
+  hcMarked,
+  tmhDynamicLocale
 ]
 
-const app = angular.module('io.cfp.front', [...dependencies, components.name, directives.name, services.name])
+export default angular.module('io.cfp.front', [...dependencies, components.name, directives.name, services.name])
   .constant('moment', moment)
   .config(config)
   .config(router)
@@ -24,11 +33,13 @@ const app = angular.module('io.cfp.front', [...dependencies, components.name, di
   .run(($log, $rootScope, $translate, tmhDynamicLocale) => {
     'ngInject'
 
+    // TODO fix this
+    /* eslint angular/on-watch: 0 */
     const syncL10nWithI18n = () => {
       tmhDynamicLocale.set($translate.use())
     }
 
-    syncL10nWithI18n()
+    $translate.onReady().then(syncL10nWithI18n)
 
     $rootScope.$on('$translateChangeSuccess', syncL10nWithI18n)
 
@@ -41,18 +52,3 @@ const app = angular.module('io.cfp.front', [...dependencies, components.name, di
     $log.debug('App Initialized')
   })
 
-const configLoaded = fetch('/infra', {method: 'HEAD'})
-  .then(response => {
-    app.constant('Infra', {
-      apiServer: response.headers.get('X-API-Server'),
-      authServer: response.headers.get('X-Authentication-Server')
-    })
-  })
-
-document.addEventListener('DOMContentLoaded', () => {
-  configLoaded.then(() => {
-    angular.bootstrap(document.documentElement, [app.name], {
-      strictDi: true
-    })
-  })
-})

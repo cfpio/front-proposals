@@ -1,13 +1,17 @@
+import _ from 'lodash'
+
 const EditProposalController = function($translate, $state) {
   'ngInject'
 
-  this.proposalTitle = this.proposal.name
+  this.$onInit = () => {
+    this.proposalTitle = this.proposal.name
 
-  this.formats = this.formats.plain()
-  this.formatObjects = _.keyBy(this.formats, 'id')
+    this.formats = this.formats.plain()
+    this.formatObjects = _.keyBy(this.formats, 'id')
 
-  this.tracks = this.tracks.plain()
-  this.trackObjects = _.keyBy(this.tracks, 'id')
+    this.tracks = this.tracks.plain()
+    this.trackObjects = _.keyBy(this.tracks, 'id')
+  }
 
   this.availableLanguages = $translate.getAvailableLanguageKeys()
 
@@ -34,7 +38,7 @@ const EditProposalController = function($translate, $state) {
 
 export const EditProposal = {
   controller: EditProposalController,
-  templateUrl: 'app/components/proposal/edit-proposal.html',
+  template: require('./edit-proposal.html'),
   bindings: {
     proposal: '=',
     tracks: '=',

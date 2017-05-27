@@ -1,3 +1,5 @@
+import angular from 'angular'
+
 import {EditProposal} from './edit-proposal'
 
 export const proposal = angular.module('io.cfp.front.components.proposal', [
@@ -7,6 +9,7 @@ export const proposal = angular.module('io.cfp.front.components.proposal', [
   .component('editProposal', EditProposal)
 
   .config(($stateProvider) => {
+    'ngInject'
 
     $stateProvider
       .state('proposal', {

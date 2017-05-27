@@ -1,3 +1,5 @@
+import angular from 'angular'
+
 import {Users} from './users.service'
 import {Drafts, Proposals} from './proposals.service'
 import {Tracks} from './tracks.service'

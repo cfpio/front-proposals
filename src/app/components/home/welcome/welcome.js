@@ -6,7 +6,7 @@ class WelcomeController {
 
 export const Welcome = {
   controller: WelcomeController,
-  templateUrl: 'app/components/home/welcome/welcome.html',
+  template: require('./welcome.html'),
   bindings: {
     event: '=',
     tracks: '=',

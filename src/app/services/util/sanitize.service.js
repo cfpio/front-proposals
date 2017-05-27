@@ -1,3 +1,5 @@
+import _ from 'lodash'
+
 const sanitizeText = ($sanitize) => {
   'ngInject'
   return (text) => {

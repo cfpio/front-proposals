@@ -1,4 +1,4 @@
-export const router = ($locationProvider, $urlRouterProvider, $stateProvider) => {
+export const router = ($locationProvider, $urlRouterProvider) => {
   'ngInject'
 
   // Routing

@@ -8,7 +8,7 @@ class TopMenuController {
 
 export const TopMenu = {
   controller: TopMenuController,
-  templateUrl: 'app/components/home/top-menu/top-menu.html',
+  template: require('./top-menu.html'),
   bindings: {
     user: '='
   }

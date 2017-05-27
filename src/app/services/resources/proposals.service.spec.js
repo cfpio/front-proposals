@@ -1,3 +1,6 @@
+import angular from 'angular'
+import 'angular-mocks'
+
 describe('resource', () => {
 
   let Restangular, sanitize
@@ -8,7 +11,7 @@ describe('resource', () => {
     $provide.value('sanitize', spiedSanitize)
   }))
 
-  beforeEach(inject((_Restangular_, _sanitize_) => {
+  beforeEach(angular.mock.inject((_Restangular_, _sanitize_) => {
     Restangular = _Restangular_
     sanitize = _sanitize_
   }))
@@ -17,7 +20,7 @@ describe('resource', () => {
 
     let service
 
-    beforeEach(inject((Drafts) => {
+    beforeEach(angular.mock.inject((Drafts) => {
       service = Drafts
     }))
 
@@ -41,7 +44,7 @@ describe('resource', () => {
 
       let Proposals, proposal
 
-      beforeEach(inject((_Proposals_) => {
+      beforeEach(angular.mock.inject((_Proposals_) => {
         Proposals = _Proposals_
         proposal = jasmine.createSpyObj('proposal', ['save']) // mock the result of Proposals.restangulize…
         spyOn(Proposals, 'restangularize').and.returnValue(proposal) // … to check it is called
@@ -63,7 +66,7 @@ describe('resource', () => {
 
     let service
 
-    beforeEach(inject((Proposals) => {
+    beforeEach(angular.mock.inject((Proposals) => {
       service = Proposals
     }))
 

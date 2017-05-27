@@ -1,3 +1,5 @@
+import _ from 'lodash'
+
 export const Users = (RestangularProvider) => {
   'ngInject'
 
@@ -12,7 +14,7 @@ export const Users = (RestangularProvider) => {
   })
 
   return {
-    '$get': ($rootScope, Restangular, sanitize) => {
+    $get: ($rootScope, Restangular, sanitize) => {
       'ngInject'
 
       const service = Restangular.service(usersPath)
